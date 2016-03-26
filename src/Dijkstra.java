@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,11 +24,9 @@ public class Dijkstra {
 
 	public void execute(Node sourceNode) {
 		/*
-		 * for (int i = 0; i < nodes.size(); i++) {
-		 * System.out.println(nodes.get(i).id); }
+		 * for (int i = 0; i < nodes.size(); i++) { System.out.println(nodes.get(i).id); }
 		 * 
-		 * for (int i = 0; i < edges.size(); i++) {
-		 * System.out.println(edges.get(i).toString()); }
+		 * for (int i = 0; i < edges.size(); i++) { System.out.println(edges.get(i).toString()); }
 		 */
 
 		settledNodes = new HashSet<Node>();
@@ -41,6 +37,7 @@ public class Dijkstra {
 		this.sourceNode = sourceNode;
 		nodeDistance.put(sourceNode, (double) 0);
 		unsettledNodes.add(sourceNode);
+
 		while (!unsettledNodes.isEmpty()) {
 			// find the minimal distance node in the unsettledNodes collection
 			Node currentNode = findMinimumFromUnsettledNodes(unsettledNodes);
@@ -58,26 +55,27 @@ public class Dijkstra {
 			settledNodes.add(currentNode);
 			unsettledNodes.remove(currentNode);
 		}
-		/*Iterator<Node> iter = nodeDistance.keySet().iterator();
-		while (iter.hasNext()) {
-			Node cur = (Node) iter.next();
-			System.out.println("To node " + cur.id + " with distance: " + nodeDistance.get(cur));
-		}*/
 		/*
-		 * Iterator<Node> iter = predecessor.keySet().iterator(); while
-		 * (iter.hasNext()) { Node cur = (Node) iter.next(); System.out.println(
-		 * "To node " + cur.id + " From Node " + predecessor.get(cur)); }
+		 * Iterator<Node> iter = nodeDistance.keySet().iterator(); while (iter.hasNext()) { Node cur
+		 * = (Node) iter.next(); System.out.println("To node " + cur.id + " with distance: " +
+		 * nodeDistance.get(cur)); }
+		 */
+		/*
+		 * Iterator<Node> iter = predecessor.keySet().iterator(); while (iter.hasNext()) { Node cur
+		 * = (Node) iter.next(); System.out.println( "To node " + cur.id + " From Node " +
+		 * predecessor.get(cur)); }
 		 */
 
 	}
 
 	private void getMinDistance(Node currentNode) {
-		// TODO Auto-generated method stub
 		for (Edge edgeEle : edges) {
-			if (edgeEle.destination.equals(currentNode) && getNodeDistance(edgeEle.source) != Integer.MAX_VALUE) {
+			if (edgeEle.destination.equals(currentNode)
+					&& getNodeDistance(edgeEle.source) != Integer.MAX_VALUE) {
 
-				if (getNodeDistance(currentNode) > getNodeDistance(edgeEle.source) + edgeEle.weight) {
-					nodeDistance.put(currentNode, getNodeDistance(edgeEle.source) + edgeEle.weight);
+				if (getNodeDistance(currentNode) > getNodeDistance(edgeEle.source)
+						+ edgeEle.weight) {
+					nodeDistance.put(currentNode, getNodeDistance(edgeEle.source) + edgeEle.weight); //TODO: Don't understand this
 					predecessor.put(currentNode, edgeEle.source);
 					predecessorEdge.put(currentNode, edgeEle);
 				}
@@ -86,10 +84,10 @@ public class Dijkstra {
 	}
 
 	private void calculateItsNeighbors(Node currentNode) {
-		// TODO Auto-generated method stub
 		for (Edge edgeEle : edges) {
 			if (edgeEle.source.equals(currentNode) && !settledNodes.contains(edgeEle.destination)) {
-				nodeDistance.put(edgeEle.destination, edgeEle.weight + nodeDistance.get(currentNode));
+				nodeDistance.put(edgeEle.destination,
+						edgeEle.weight + nodeDistance.get(currentNode));
 				unsettledNodes.add(edgeEle.destination);
 				predecessor.put(edgeEle.destination, currentNode);
 				predecessorEdge.put(edgeEle.destination, edgeEle);
@@ -98,7 +96,6 @@ public class Dijkstra {
 	}
 
 	private Node findMinimumFromUnsettledNodes(Set<Node> unsettledNodes) {
-		// TODO Auto-generated method stub
 		Node minimumNode = null;
 		for (Node ele : unsettledNodes) {
 			if (minimumNode == null) {
@@ -113,7 +110,6 @@ public class Dijkstra {
 	}
 
 	private double getNodeDistance(Node minimumNode) {
-		// TODO Auto-generated method stub
 		if (nodeDistance.get(minimumNode) != null) {
 			return nodeDistance.get(minimumNode);
 		}
@@ -121,38 +117,30 @@ public class Dijkstra {
 	}
 
 	public Stack<Edge> shortestPath(Node destinationNode) {
-		/*LinkedList<Node> pathToReturn = new LinkedList<Node>();
-
-		pathToReturn.add(destinationNode);
-		while (destinationNode != this.sourceNode) {
-			
-			 * if(!predecessor.containsValue(destinationNode)){ return null; }
-			 
-			destinationNode = predecessor.get(destinationNode); // get the
-																// source Node
-																// for current
-																// destination
-																// Node and
-																// update it as
-																// new
-																// destination
-																// Node
-			pathToReturn.add(destinationNode);
-
-		}
+		/*
+		 * LinkedList<Node> pathToReturn = new LinkedList<Node>();
+		 * 
+		 * pathToReturn.add(destinationNode); while (destinationNode != this.sourceNode) {
+		 * 
+		 * if(!predecessor.containsValue(destinationNode)){ return null; }
+		 * 
+		 * destinationNode = predecessor.get(destinationNode); // get the // source Node // for
+		 * current // destination // Node and // update it as // new // destination // Node
+		 * pathToReturn.add(destinationNode);
+		 * 
+		 * }
 		 */
-		
+
 		Node tmpNode = destinationNode;
 		Edge tmpPath = null;
 		Stack<Edge> pathToReturn = new Stack<Edge>();
-		
-		while(!tmpNode.equals(this.sourceNode)){
+
+		while (!tmpNode.equals(this.sourceNode)) {
 			tmpPath = predecessorEdge.get(tmpNode);
 			tmpNode = tmpPath.source;
 			pathToReturn.push(tmpPath);
 		}
-		
-		
+
 		return pathToReturn;
 	}
 
