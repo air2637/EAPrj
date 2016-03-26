@@ -27,20 +27,10 @@ public class Tester {
 
 		try {
 			w = new PrintWriter(new BufferedWriter(new FileWriter("ans.txt", false)));
+			System.out.println("running...");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		/*
-		 * for(int i=0; i<11; i++){ //Node location = new Node("Node_"+i); Node location = new
-		 * Node(""+i); nodes.add(location); }
-		 * 
-		 * addLane("Edge_0", 0, 1, 85); addLane("Edge_1", 0, 2, 217); addLane("Edge_2", 0, 4, 173);
-		 * addLane("Edge_3", 2, 6, 186); addLane("Edge_4", 2, 7, 103); addLane("Edge_5", 3, 7, 183);
-		 * addLane("Edge_6", 5, 8, 250); addLane("Edge_7", 8, 9, 84); addLane("Edge_8", 7, 9, 167);
-		 * addLane("Edge_9", 4, 9, 502); addLane("Edge_10", 9, 10, 40); addLane("Edge_11", 1, 10,
-		 * 600);
-		 */
 
 		RoadGraphReader roadGraphReader = new RoadGraphReader();
 
@@ -56,7 +46,7 @@ public class Tester {
 		// Stack<Edge> p = runDijkstra(graph, 5453, 3915);
 		// Double total = getTotalDist(p);
 
-		InputReaderPartA partA = new InputReaderPartA(dataFolderPath + INPUT_FILE);
+		InputReaderPartA partA = new InputReaderPartA(dataFolderPath + INPUT_FILE, 5);
 		ArrayList<Integer[]> demands = partA.getDemands();
 		ArrayList<Integer> taxiLocations = partA.getTaxiLocations();
 
@@ -70,11 +60,16 @@ public class Tester {
 			w.println();
 		}
 
+		// Double t = getShortestPathDistanceBetweenNodes(graph, 0, 9);
+		// w.println("dist: " + t);
+
+		w.flush();
+		w.close();
+
 	}
 
 	private static int[][] runModel(Graph graph, ArrayList<Integer[]> demands,
 			ArrayList<Integer> taxiLocations) {
-		System.out.println("running model...");
 
 		int[][] assignment = new int[demands.size()][taxiLocations.size()];
 
@@ -94,8 +89,13 @@ public class Tester {
 			IloLinearNumExpr obj = model.linearNumExpr();
 			for (int i = 0; i < demands.size(); i++) {
 				for (int j = 0; j < taxiLocations.size(); j++) {
-					obj.addTerm(getDistBetweenNodes(graph, demands.get(i)[0], taxiLocations.get(j)),
-							x[i][j]);
+					int a = demands.get(i)[0];
+					int b = taxiLocations.get(j);
+
+					System.out.println("demand: " + a);
+					System.out.println("taxi: " + b);
+
+					obj.addTerm(getShortestPathDistanceBetweenNodes(graph, a, b), x[i][j]);
 				}
 			}
 			model.addMinimize(obj);
@@ -123,12 +123,27 @@ public class Tester {
 			if (isSolved) {
 				double objValue = model.getObjValue();
 				System.out.println("obj_val = " + objValue);
+				w.println("obj value: " + objValue);
 
 				for (int i = 0; i < demands.size(); i++) {
 					for (int j = 0; j < taxiLocations.size(); j++) {
 						assignment[i][j] = (int) model.getValue(x[i][j]);
 					}
 				}
+
+				double totalDistForDemand = 0.0;
+				for (Integer[] i : demands) {
+					int startPoint = i[0];
+					int endPoint = i[1];
+					totalDistForDemand += getShortestPathDistanceBetweenNodes(graph, startPoint,
+							endPoint);
+				}
+				System.out.println("totalDistForDemand: " + totalDistForDemand);
+				System.out.println("Final final value: " + (totalDistForDemand + objValue));
+
+				w.println("totalDistforDemand: " + totalDistForDemand);
+				w.println("final value: " + (totalDistForDemand + objValue));
+
 			} else {
 				System.out.println("Model not solved :(");
 			}
@@ -142,18 +157,19 @@ public class Tester {
 
 	}
 
-	private static double getDistBetweenNodes(Graph graph, int n1, int n2) {
-		Stack<Edge> p = runDijkstra(graph, n1, n2);
-		return getTotalDist(p);
-	}
+	private static double getShortestPathDistanceBetweenNodes(Graph graph, int n1, int n2) {
+		System.out.println("running shortestdistdistm, start: " + n1 + ", end: " + n2);
 
-	private static double getTotalDist(Stack<Edge> path) {
+		Stack<Edge> path = runDijkstra(graph, n1, n2);
+
 		Double total = 0.0;
-		for (int i = 0; i < path.size() - 1; i++) {
+		for (int i = 0; i < path.size(); i++) {
+			System.out.print(path.get(i) + " ");
 			total += path.get(i).weight;
 		}
-		System.out
-				.println("path " + path.get(0) + " to " + path.get(path.size() - 1) + ": " + total);
+		System.out.println();
+		System.out.println("path " + n1 + " to " + n2 + ": " + total);
+		w.println("path " + n1 + " to " + n2 + ": " + total);
 		return total;
 	}
 
@@ -182,15 +198,9 @@ public class Tester {
 
 		Stack<Edge> path = dijkstra.shortestPath(endNode);
 
-		// if (path == null) {
-		// System.out.println("No available path");
-		// } else {
-		// while (!path.isEmpty()) {
-		// System.out.println(path.pop());
-		// }
-		// }
-		// System.out.println("done!");
-		System.out.println("completed dijkstra, start: " + start + ", end: " + end);
+		if (path == null) {
+			System.out.println("No available path between " + start + " and " + end);
+		}
 		return path;
 	}
 

@@ -11,7 +11,7 @@ public class InputReaderPartA {
 		final String dataFolderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for Decision Support\\project\\supplementary\\supplementary\\training\\";
 		final String INPUT_FILE = "sin_train_5_5.txt";
 		// InputReaderPartA i = new InputReaderPartA("inputa.txt");
-		InputReaderPartA i = new InputReaderPartA(dataFolderPath + INPUT_FILE);
+		InputReaderPartA i = new InputReaderPartA(dataFolderPath + INPUT_FILE, 5);
 
 		// get the demands
 		ArrayList<Integer[]> d = i.getDemands();
@@ -47,7 +47,7 @@ public class InputReaderPartA {
 	}
 
 	// constructor
-	public InputReaderPartA(String inputFilePath) {
+	public InputReaderPartA(String inputFilePath, int num) {
 		File f = new File(inputFilePath);
 		// to read a file
 		BufferedReader br = null;
@@ -56,9 +56,9 @@ public class InputReaderPartA {
 			br = new BufferedReader(new FileReader(f));
 
 			// get the number of demands K
-			int k = 5;
+			int k = num;
 			// get the number of taxis N
-			int n = 5;
+			int n = num;
 
 			// read N taxi locations
 			for (int i = 0; i < n; i++) {
