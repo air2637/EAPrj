@@ -3,6 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -22,12 +23,16 @@ public class Tester {
 	final static String INPUT_FILE = "sin_train_5_5.txt";
 
 	static PrintWriter w;
+	static PrintWriter w1;
 
 	public static void main(String[] args) {
+		Date startTime = new Date();
 
 		try {
+
 			w = new PrintWriter(new BufferedWriter(new FileWriter("ans.txt", false)));
-			System.out.println("running...");
+			w1 = new PrintWriter(new BufferedWriter(new FileWriter("final.csv", false)));
+			System.out.println("running Test...");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -43,18 +48,46 @@ public class Tester {
 		}
 
 		Graph graph = new Graph(nodes, edges);
-		// Stack<Edge> p = runDijkstra(graph, 5453, 3915);
-		// Double total = getTotalDist(p);
 
 		InputReaderPartA partA = new InputReaderPartA(dataFolderPath + INPUT_FILE, 5);
 		ArrayList<Integer[]> demands = partA.getDemands();
 		ArrayList<Integer> taxiLocations = partA.getTaxiLocations();
 
-		int[][] ans = runModel(graph, demands, taxiLocations);
+		int[][] result = runModel(graph, demands, taxiLocations);
 		for (int i = 0; i < demands.size(); i++) {
 			for (int j = 0; j < taxiLocations.size(); j++) {
-				System.out.print(ans[i][j] + " ");
-				w.print(ans[i][j] + " ");
+				System.out.print(result[i][j] + " ");
+				w.print(result[i][j] + " ");
+
+				// printing to final
+				if (result[i][j] == 1) {
+					int t = taxiLocations.get(j);
+					int s = demands.get(i)[0];
+					int e = demands.get(i)[1];
+
+					Stack<Edge> p = runDijkstra(graph, t, s);
+					int porg = p.size();
+					while (!p.isEmpty()) {
+						if (p.size() == porg) {
+							w1.println("Taxi," + p.pop().id);
+						} else {
+							w1.println("Trans," + p.pop().id);
+						}
+					}
+
+					Stack<Edge> p2 = runDijkstra(graph, s, e);
+					int p2org = p2.size();
+					while (!p2.isEmpty()) {
+						if (p2.size() == 1) {
+							w1.println("End," + p2.pop().id);
+						} else if (p2.size() == p2org) {
+							w1.println("Start," + p2.pop().id);
+						} else {
+							w1.println("Trans," + p2.pop().id);
+						}
+
+					}
+				}
 			}
 			System.out.println();
 			w.println();
@@ -62,7 +95,13 @@ public class Tester {
 
 		// Double t = getShortestPathDistanceBetweenNodes(graph, 0, 9);
 		// w.println("dist: " + t);
+		Date nowTime = new Date();
 
+		System.out.println("run complete");
+		System.out.println("duration (mins): " + (nowTime.getMinutes() - startTime.getMinutes()));
+
+		w1.flush();
+		w1.close();
 		w.flush();
 		w.close();
 
@@ -77,7 +116,7 @@ public class Tester {
 			// Define an empty model
 			IloCplex model = new IloCplex();
 
-			// Define the binary variables
+			// Define the binary/decision variables
 			IloNumVar[][] x = new IloNumVar[demands.size()][taxiLocations.size()];
 			for (int i = 0; i < demands.size(); i++) {
 				for (int j = 0; j < taxiLocations.size(); j++) {
@@ -92,9 +131,9 @@ public class Tester {
 					int a = demands.get(i)[0];
 					int b = taxiLocations.get(j);
 
-					System.out.println("demand: " + a);
-					System.out.println("taxi: " + b);
+					System.out.println("demand: " + a + ", taxi: " + b);
 
+					System.out.println("x[" + i + "][" + j + "] = " + x[i][j]);
 					obj.addTerm(getShortestPathDistanceBetweenNodes(graph, a, b), x[i][j]);
 				}
 			}
@@ -131,6 +170,7 @@ public class Tester {
 					}
 				}
 
+				// to add the distances for demand
 				double totalDistForDemand = 0.0;
 				for (Integer[] i : demands) {
 					int startPoint = i[0];

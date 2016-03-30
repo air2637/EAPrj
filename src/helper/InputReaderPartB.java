@@ -7,77 +7,81 @@ import java.io.IOException;
 import java.util.*;
 
 public class InputReaderPartB {
-    public static void main(String[] args) {
-        InputReaderPartB i = new InputReaderPartB("inputb.txt");
+	public static void main(String[] args) {
+		InputReaderPartB i = new InputReaderPartB(new Integer[] { 5, 6 });// put an array list of
+																			// (N,K) and N < K
 
-        //get the demands
-        ArrayList<Integer[]> d = i.getDemands();
+		// get the demands
+		ArrayList<Integer[]> d = i.getDemands();
 
-        //print out demands
-        Iterator<Integer[]> iter1 = d.iterator();
-        while (iter1.hasNext()) {
-            Integer[] next =  iter1.next();
-            System.out.println("O: " + next[0] + " -- D: " + next[1] + " -- Time:" + next[2]);
-        }
+		// print out demands
+		Iterator<Integer[]> iter1 = d.iterator();
+		while (iter1.hasNext()) {
+			Integer[] next = iter1.next();
+			System.out.println("O: " + next[0] + " -- D: " + next[1] + " -- Time:" + next[2]);
+		}
 
+		// get initial taxi locations
+		ArrayList<Integer> t = i.getTaxiLocations();
 
-        //get initial taxi locations
-        ArrayList<Integer> t = i.getTaxiLocations();
+		// print out taxi locations
+		Iterator<Integer> iter2 = t.iterator();
+		while (iter2.hasNext()) {
+			Integer next = iter2.next();
+			System.out.println("Taxi location: " + next);
+		}
+	}
 
-        //print out taxi locations
-        Iterator<Integer>  iter2 = t.iterator();
-        while (iter2.hasNext()) {
-            Integer next =  iter2.next();
-            System.out.println("Taxi location: " + next);
-        }
-    }
+	private ArrayList<Integer[]> demands = new ArrayList<>();
+	private ArrayList<Integer> taxiLocations = new ArrayList<>();
 
-    private ArrayList<Integer[]> demands = new ArrayList<>();
-    private ArrayList<Integer> taxiLocations = new ArrayList<>();
+	// getter
+	public ArrayList<Integer[]> getDemands() {
+		return demands;
+	}
 
-    //getter
-    public ArrayList<Integer[]> getDemands() {
-        return demands;
-    }
+	public ArrayList<Integer> getTaxiLocations() {
+		return taxiLocations;
+	}
 
-    public ArrayList<Integer> getTaxiLocations() {
-        return taxiLocations;
-    }
+	// constructor
+	public InputReaderPartB(Integer[] nK) {
+		if (nK[0] >= nK[1]) {
+			System.out.println("Not valid N, K. N must lower than K");
+			return;
+		}
 
-    //constructor
-    public InputReaderPartB(String inputFilePath) {
-            File f = new File(inputFilePath);
-            //to read a file
-            BufferedReader br = null;
+		String folderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for Decision Support\\project\\supplementary\\supplementary\\training\\";
 
-            try {
-                br = new BufferedReader(new FileReader(f));
+		File f = new File(folderPath + "sin_train_" + nK[0] + "_" + nK[1] + ".txt");
+		// to read a file
+		BufferedReader br = null;
 
-                //get the number of demands K
-                int k = Integer.parseInt(br.readLine());
-                //get the number of taxis  N
-                int n = Integer.parseInt(br.readLine());
+		try {
+			br = new BufferedReader(new FileReader(f));
 
-                //read K demands
-                for(int i = 0; i < k ; i++){
-                    String[] line = br.readLine().split(", ");
+			// read N taxi locations
+			for (int i = 0; i < nK[0]; i++) {
+				// this array contains 1 integer value: taxi location
+				taxiLocations.add(Integer.parseInt(br.readLine()));
+			}
 
-                    //this array contains 3 integer values: origin, destination, time
-                    Integer[] d = new Integer[3];
-                    d[0] = Integer.parseInt(line[0]);
-                    d[1] = Integer.parseInt(line[1]);
-                    d[2] = Integer.parseInt(line[2]);
+			// read K demands
+			for (int i = 0; i < nK[1]; i++) {
+				String[] line = br.readLine().split(", ");
 
-                    demands.add(d);
-                }
-                //read N taxi locations
-                for(int i = 0; i < n ; i++){
-                    //this array contains 1 integer value: taxi location
-                    taxiLocations.add(Integer.parseInt(br.readLine()));
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+				// this array contains 3 integer values: origin, destination, time
+				Integer[] d = new Integer[3];
+				d[0] = Integer.parseInt(line[0]);
+				d[1] = Integer.parseInt(line[1]);
+				d[2] = Integer.parseInt(line[2]);
+
+				demands.add(d);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
