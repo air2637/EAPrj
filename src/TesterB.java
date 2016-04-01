@@ -18,8 +18,8 @@ public class TesterB {
 	static List<Edge> edges = new ArrayList<Edge>();
 
 	final static String dataFolderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for Decision Support\\project\\supplementary\\supplementary\\training\\";
-	final static int NUM_TAXI = 10;
-	final static int NUM_DEMAND = 15;
+	final static int NUM_TAXI = 5;
+	final static int NUM_DEMAND = 6;
 	final static String INPUT_FILE = "sin_train_" + NUM_TAXI + "_" + NUM_DEMAND + ".txt";
 
 	static Graph graph;
@@ -38,6 +38,7 @@ public class TesterB {
 			e.printStackTrace();
 		}
 
+		// load Graph
 		RoadGraphReader roadGraphReader = new RoadGraphReader();
 
 		HashMap<String, Edge> loadedEdges = roadGraphReader.getLoadedEdges();
@@ -47,7 +48,6 @@ public class TesterB {
 			Edge edge = loadedEdges.get(edgeId);
 			addLane(edgeId, edge);
 		}
-
 		graph = new Graph(nodes, edges);
 
 		InputReaderPartB partB = new InputReaderPartB(new Integer[] { NUM_TAXI, NUM_DEMAND });
@@ -98,7 +98,7 @@ public class TesterB {
 			}
 		});
 
-		// *** MODEL START
+		// ****** MODEL START ******
 		while (!requests.isEmpty()) {
 			Integer[] r = requests.remove(0);
 			int requestId = r[0];

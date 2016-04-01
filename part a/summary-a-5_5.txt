@@ -1,0 +1,9 @@
+obj value: 49.4523154359595
+totalDistForDemand: 49.4344238876607
+Final final value: 98.88673932362019
+1 0 0 0 0 
+0 0 0 1 0 
+0 0 1 0 0 
+0 0 0 0 1 
+0 1 0 0 0 
+duration (min): 4.3627
