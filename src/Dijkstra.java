@@ -143,5 +143,11 @@ public class Dijkstra {
 
 		return pathToReturn;
 	}
+	
+	
+	
+	public double shortestPathWeight(Node destinationNode){
+		return getNodeDistance(destinationNode);
+	}
 
 }
