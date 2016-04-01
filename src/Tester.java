@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
+import java.util.TreeMap;
 
 import helper.InputReaderPartA;
 import ilog.concert.IloException;
@@ -20,7 +21,7 @@ public class Tester {
 	static List<Edge> edges = new ArrayList<Edge>();
 
 	final static String dataFolderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for Decision Support\\project\\supplementary\\supplementary\\training\\";
-	final static int NUM = 5;
+	final static int NUM = 10;
 	final static String INPUT_FILE = "sin_train_" + NUM + "_" + NUM + ".txt";
 
 	static PrintWriter w;
@@ -30,9 +31,11 @@ public class Tester {
 		Date startTime = new Date();
 
 		try {
-			w = new PrintWriter(new BufferedWriter(new FileWriter("ans.txt", false)));
-			w1 = new PrintWriter(new BufferedWriter(new FileWriter("final.csv", false)));
-			System.out.println("running Test...");
+			w = new PrintWriter(new BufferedWriter(
+					new FileWriter("part a/summary-a-" + NUM + "_" + NUM + ".txt", false)));
+			w1 = new PrintWriter(new BufferedWriter(
+					new FileWriter("part a/results-a-" + NUM + "_" + NUM + ".csv", false)));
+			System.out.println("running Test A. Size: " + NUM);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -56,6 +59,7 @@ public class Tester {
 		int[][] result = runModel(graph, demands, taxiLocations);
 		for (int i = 0; i < demands.size(); i++) {
 			for (int j = 0; j < taxiLocations.size(); j++) {
+				w.print(result[i][j] + " ");
 				System.out.print(result[i][j] + " ");
 
 				// printing to final
@@ -97,8 +101,7 @@ public class Tester {
 		Date nowTime = new Date();
 
 		System.out.println("run complete");
-		System.out.println(
-				"duration (min): " + ((nowTime.getTime() - startTime.getTime()) / 60000.0));
+		print("duration (min): " + ((nowTime.getTime() - startTime.getTime()) / 60000.0));
 
 		w1.flush();
 		w1.close();
@@ -156,23 +159,12 @@ public class Tester {
 				}
 				model.addEq(colSum, 1);
 			}
-			// The assignment is symmetrical // This one doesnt make sense
-			// for (int i = 0; i < demands.size(); i++) {
-			// for (int j = 0; j < taxiLocations.size(); j++) {
-			// if (i != j) {
-			// IloLinearNumExpr numExpr = model.linearNumExpr();
-			// numExpr.addTerm(1, x[i][j]);
-			// model.addEq(numExpr, x[j][i]);
-			// }
-			// }
-			// }
 
 			// Solve the model
 			boolean isSolved = model.solve();
 			if (isSolved) {
 				double objValue = model.getObjValue();
-				System.out.println("obj_val = " + objValue);
-				w.println("obj value: " + objValue);
+				print("obj value: " + objValue);
 
 				for (int i = 0; i < demands.size(); i++) {
 					for (int j = 0; j < taxiLocations.size(); j++) {
@@ -188,14 +180,11 @@ public class Tester {
 					totalDistForDemand += getShortestPathDistanceBetweenNodes(graph, startPoint,
 							endPoint);
 				}
-				System.out.println("totalDistForDemand: " + totalDistForDemand);
-				System.out.println("Final final value: " + (totalDistForDemand + objValue));
-
-				w.println("totalDistforDemand: " + totalDistForDemand);
-				w.println("final value: " + (totalDistForDemand + objValue));
+				print("totalDistForDemand: " + totalDistForDemand);
+				print("Final final value: " + (totalDistForDemand + objValue));
 
 			} else {
-				System.out.println("Model not solved :(");
+				print("Model not solved :(");
 			}
 
 		} catch (IloException e) {
@@ -248,14 +237,23 @@ public class Tester {
 		Stack<Edge> path = dijkstra.shortestPath(endNode);
 
 		if (path == null) {
-			System.out.println("No available path between " + start + " and " + end);
+			print("No available path between " + start + " and " + end);
 		}
 		return path;
+	}
+
+	private static TreeMap<Integer, Stack<Edge>> mapDikjstra(Graph graph, int startNode) {
+		return null;
 	}
 
 	private static void addLane(String laneId, int sourceLocNo, int destLocNo, int duration) {
 		Edge lane = new Edge(laneId, nodes.get(sourceLocNo), nodes.get(destLocNo), duration);
 		edges.add(lane);
+	}
+
+	private static void print(String s) {
+		System.out.println(s);
+		w.println(s);
 	}
 
 	private static void addLane(String laneId, Edge edge) {
