@@ -56,7 +56,7 @@ public class TesterB {
 
 		createDijkstraMap();
 
-		runModel();
+		runGreedy();
 
 		Date nowTime = new Date();
 
@@ -71,7 +71,7 @@ public class TesterB {
 
 	}
 
-	private static void runModel() {
+	private static void runGreedy() {
 
 		// Set customer to taxi [taxi id, taxi loc, request id, request loc]
 		ArrayList<Integer[]> assignment = new ArrayList<Integer[]>();
