@@ -17,9 +17,12 @@ public class TesterB {
 	static List<Node> nodes = new ArrayList<Node>();
 	static List<Edge> edges = new ArrayList<Edge>();
 
+	static ArrayList<Integer[]> demands;
+	static ArrayList<Integer> taxiLocations;
+
 	final static String dataFolderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for Decision Support\\project\\supplementary\\supplementary\\training\\";
-	final static int NUM_TAXI = 5;
-	final static int NUM_DEMAND = 6;
+	final static int NUM_TAXI = 100;
+	final static int NUM_DEMAND = 120;
 	final static String INPUT_FILE = "sin_train_" + NUM_TAXI + "_" + NUM_DEMAND + ".txt";
 
 	static Graph graph;
@@ -27,37 +30,33 @@ public class TesterB {
 	static PrintWriter w;
 	static PrintWriter w1;
 
+	static HashMap<Integer, Dijkstra> dijkstraMap = new HashMap<Integer, Dijkstra>();
+
 	public static void main(String[] args) {
 		Date startTime = new Date();
 
 		try {
-			w = new PrintWriter(new BufferedWriter(new FileWriter("ans2.txt", false)));
-			w1 = new PrintWriter(new BufferedWriter(new FileWriter("final2.csv", false)));
-			System.out.println("running TestB...");
+			w = new PrintWriter(new BufferedWriter(new FileWriter(
+					"part b/summary-b-" + NUM_TAXI + "_" + NUM_DEMAND + ".txt", false)));
+			w1 = new PrintWriter(new BufferedWriter(new FileWriter(
+					"part b/results-b-" + NUM_TAXI + "_" + NUM_DEMAND + ".csv", false)));
+			System.out.println("running TestB. Size: " + NUM_TAXI + ", " + NUM_DEMAND);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		// load Graph
-		RoadGraphReader roadGraphReader = new RoadGraphReader();
-
-		HashMap<String, Edge> loadedEdges = roadGraphReader.getLoadedEdges();
-		Iterator<String> iter = loadedEdges.keySet().iterator();
-		while (iter.hasNext()) {
-			String edgeId = (String) iter.next();
-			Edge edge = loadedEdges.get(edgeId);
-			addLane(edgeId, edge);
-		}
-		graph = new Graph(nodes, edges);
+		loadGraph();
 
 		InputReaderPartB partB = new InputReaderPartB(new Integer[] { NUM_TAXI, NUM_DEMAND });
-		ArrayList<Integer[]> demands = partB.getDemands();
-		ArrayList<Integer> taxiLocations = partB.getTaxiLocations();
+		demands = partB.getDemands();
+		taxiLocations = partB.getTaxiLocations();
 
 		System.out.println("taxi size: " + taxiLocations.size());
 		System.out.println("demand size: " + demands.size());
 
-		runModel(graph, demands, taxiLocations);
+		createDijkstraMap();
+
+		runModel();
 
 		Date nowTime = new Date();
 
@@ -72,8 +71,7 @@ public class TesterB {
 
 	}
 
-	private static void runModel(Graph graph, ArrayList<Integer[]> demands,
-			ArrayList<Integer> taxiLocations) {
+	private static void runModel() {
 
 		// Set customer to taxi [taxi id, taxi loc, request id, request loc]
 		ArrayList<Integer[]> assignment = new ArrayList<Integer[]>();
@@ -108,6 +106,8 @@ public class TesterB {
 			print("request-id:" + requestId + ", t:" + requestTime + ", ogn:" + startLoc + ", des:"
 					+ descLoc);
 
+			Dijkstra dijkstra = dijkstraMap.get(startLoc);
+
 			double shortestWait = -1;
 			int nearestTaxiLoc = -1;
 			int nearestTaxiId = -1;
@@ -119,7 +119,7 @@ public class TesterB {
 				int taxiLoc = i[1].intValue();
 
 				// Choosing logic
-				double travelTime = getShortestPathDistanceBetweenNodes(graph, taxiLoc, startLoc);
+				double travelTime = dijkstra.shortestPathWeight(getNode(taxiLoc));
 				double setOffTime = requestTime - travelTime;
 				double waitTime = taxiAvailTime - setOffTime; // negative value means on time
 
@@ -173,18 +173,20 @@ public class TesterB {
 		for (Integer[] i : assignment) {
 			int taxiId = i[0];
 			int taxiLoc = i[1];
-			int requestId = i[2];
+			// int requestId = i[2];
 			int requestTime = i[3];
 			int startLoc = i[4];
 			int descLoc = i[5];
 
-			Stack<Edge> p1 = runDijkstra(graph, taxiLoc, startLoc);
-			Stack<Edge> p2 = runDijkstra(graph, startLoc, descLoc);
+			Dijkstra dijkstra = dijkstraMap.get(startLoc);
+
+			Stack<Edge> p1 = dijkstra.shortestPath(getNode(taxiLoc));
+			Stack<Edge> p2 = dijkstra.shortestPath(getNode(descLoc));
 
 			// taxi travel to startLoc
 			w1.println(taxiId + ",Taxi,NA," + p1.pop().id); // remove first
 			while (!p1.isEmpty()) {
-				w1.println(taxiId + ",Trans,NA," + p1.pop().id);
+				w1.println(taxiId + ",Trans,NA," + p1.remove(0).id);
 			}
 
 			// start travelling journey
@@ -201,60 +203,60 @@ public class TesterB {
 
 	}
 
-	private static void print(String s) {
-		System.out.println(s);
-		w.println(s);
-	}
-
-	private static double getShortestPathDistanceBetweenNodes(Graph graph, int n1, int n2) {
-		// System.out.println("running shortestdistdistm, start: " + n1 + ", end: " + n2);
-
-		Stack<Edge> path = runDijkstra(graph, n1, n2);
-
-		Double total = 0.0;
-		for (int i = 0; i < path.size(); i++) {
-			// System.out.print(path.get(i) + " ");
-			total += path.get(i).weight;
-		}
-		// System.out.println();
-		// System.out.println("path " + n1 + " to " + n2 + ": " + total);
-		return total;
-	}
-
-	private static Stack<Edge> runDijkstra(Graph graph, int start, int end) {
-		// System.out.println("running dijkstra, start: " + start + ", end: " + end);
-
+	private static Dijkstra getDijkstra(Graph graph, int from) {
 		Dijkstra dijkstra = new Dijkstra(graph);
 
 		Node startNode = null;
-		Node endNode = null;
 		int breakCnt = 0;
 		for (int i = 0; i < nodes.size(); i++) {
 			if (breakCnt == 2) {
 				break;
 			}
-			if (nodes.get(i).equals(new Node(String.valueOf(start)))) {
+			if (nodes.get(i).equals(new Node(String.valueOf(from)))) {
 				startNode = nodes.get(i);
 				breakCnt++;
 			}
-			if (nodes.get(i).equals(new Node(String.valueOf(end)))) {
-				endNode = nodes.get(i);
+			if (nodes.get(i).equals(new Node(String.valueOf(from)))) {
 				breakCnt++;
 			}
 		}
 		dijkstra.execute(startNode);
-
-		Stack<Edge> path = dijkstra.shortestPath(endNode);
-
-		if (path == null) {
-			System.out.println("No available path between " + start + " and " + end);
-		}
-		return path;
+		return dijkstra;
 	}
 
-	private static void addLane(String laneId, int sourceLocNo, int destLocNo, int duration) {
-		Edge lane = new Edge(laneId, nodes.get(sourceLocNo), nodes.get(destLocNo), duration);
-		edges.add(lane);
+	private static void createDijkstraMap() {
+		for (int i = 0; i < demands.size(); i++) {
+			int startLoc = demands.get(i)[0];
+			System.out.println((i + 1) + ". Get dijkstra for " + startLoc);
+			Dijkstra d = getDijkstra(graph, startLoc);
+			dijkstraMap.put(startLoc, d);
+		}
+	}
+
+	private static Node getNode(int num) {
+		for (Node n : nodes) {
+			if (Integer.parseInt(n.id) == num) {
+				return n;
+			}
+		}
+		return null;
+	}
+
+	private static void print(String s) {
+		System.out.println(s);
+		w.println(s);
+	}
+
+	private static void loadGraph() {
+		RoadGraphReader roadGraphReader = new RoadGraphReader();
+		HashMap<String, Edge> loadedEdges = roadGraphReader.getLoadedEdges();
+		Iterator<String> iter = loadedEdges.keySet().iterator();
+		while (iter.hasNext()) {
+			String edgeId = (String) iter.next();
+			Edge edge = loadedEdges.get(edgeId);
+			addLane(edgeId, edge);
+		}
+		graph = new Graph(nodes, edges);
 	}
 
 	private static void addLane(String laneId, Edge edge) {

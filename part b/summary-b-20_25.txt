@@ -1,0 +1,1101 @@
+request-id:11, t:2, ogn:2566, des:3279
+waitTime:14.91224121640591
+waitTime:15.390940778029297
+waitTime:12.093420041040034
+waitTime:10.523917003096495
+waitTime:12.619448051679596
+waitTime:19.0493749446766
+waitTime:18.543003999121296
+waitTime:17.701035485961096
+waitTime:17.977712352526503
+waitTime:14.870534396282
+waitTime:14.6520223608774
+waitTime:21.3421719537348
+waitTime:21.542381468652895
+waitTime:21.4626164080011
+waitTime:23.790678082686895
+waitTime:18.9540439074659
+waitTime:20.392271370296598
+waitTime:29.2676345743225
+waitTime:27.431735520754334
+waitTime:32.2082544917545
+chosen-taxiId:4, reqId:11, taxiLoc:5487, startLoc:2566, descLoc:3279, wait:10.523917003096495
+taxiList-id:1, loc:6928, time:0
+taxiList-id:2, loc:9911, time:1
+taxiList-id:3, loc:5043, time:2
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:9199, time:4
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6177, time:7
+taxiList-id:9, loc:9669, time:8
+taxiList-id:10, loc:2318, time:9
+taxiList-id:11, loc:1039, time:10
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:511, time:13
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:1, t:6, ogn:8036, des:6263
+waitTime:14.849150795502808
+waitTime:14.688049557981799
+waitTime:10.613994283027598
+waitTime:28.439792458114287
+waitTime:12.5563576307765
+waitTime:15.500299276127102
+waitTime:17.917548821402402
+waitTime:15.132869583916598
+waitTime:17.914621931623405
+waitTime:11.3214587277325
+waitTime:12.083856458832901
+waitTime:17.7930962851853
+waitTime:21.479291047749797
+waitTime:18.894450505956602
+waitTime:21.222512180642397
+waitTime:16.3858780054214
+waitTime:17.8241054682521
+waitTime:29.204544153419405
+waitTime:25.1687424301959
+waitTime:29.64008858971
+chosen-taxiId:3, reqId:1, taxiLoc:5043, startLoc:8036, descLoc:6263, wait:10.613994283027598
+taxiList-id:1, loc:6928, time:0
+taxiList-id:2, loc:9911, time:1
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:9199, time:4
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6177, time:7
+taxiList-id:9, loc:9669, time:8
+taxiList-id:10, loc:2318, time:9
+taxiList-id:11, loc:1039, time:10
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:511, time:13
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:24, t:7, ogn:1441, des:4238
+waitTime:13.142424401445808
+waitTime:12.981323163924799
+waitTime:39.09658075357209
+waitTime:26.733066064057287
+waitTime:10.017684421987592
+waitTime:10.4545030721003
+waitTime:16.210822427345402
+waitTime:13.426143189859598
+waitTime:16.207895537566404
+waitTime:6.392563436219199
+waitTime:8.177760621817502
+waitTime:12.747300081158498
+waitTime:18.94061783896089
+waitTime:14.4045722656536
+waitTime:19.515785786585397
+waitTime:14.6791516113644
+waitTime:13.3342272279491
+waitTime:27.497817759362402
+waitTime:23.4620160361389
+waitTime:24.8830218284151
+chosen-taxiId:10, reqId:24, taxiLoc:2318, startLoc:1441, descLoc:4238, wait:6.392563436219199
+taxiList-id:1, loc:6928, time:0
+taxiList-id:2, loc:9911, time:1
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:9199, time:4
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6177, time:7
+taxiList-id:9, loc:9669, time:8
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:1039, time:10
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:511, time:13
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:25, t:7, ogn:5893, des:1030
+waitTime:1.001525613266299
+waitTime:1.4802251748897
+waitTime:28.979870049165697
+waitTime:24.80640798786859
+waitTime:2.913133960559901
+waitTime:21.732268331847003
+waitTime:4.632288395981701
+waitTime:5.7577580495272995
+waitTime:4.066996749386901
+waitTime:20.374207859446095
+waitTime:17.3349157480478
+waitTime:13.097447315950603
+waitTime:11.836067377533201
+waitTime:24.145509795171492
+waitTime:21.4260081716595
+waitTime:20.293191489084897
+waitTime:23.075164757466997
+waitTime:15.3569189711829
+waitTime:19.690591215088737
+waitTime:34.8911478789249
+chosen-taxiId:1, reqId:25, taxiLoc:6928, startLoc:5893, descLoc:1030, wait:1.001525613266299
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:9911, time:1
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:9199, time:4
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6177, time:7
+taxiList-id:9, loc:9669, time:8
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:1039, time:10
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:511, time:13
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:7, t:12, ogn:6964, des:2880
+waitTime:19.249937813295404
+waitTime:-7.681029435468901
+waitTime:26.751533185897795
+waitTime:18.43765779119009
+waitTime:0.6847970972919999
+waitTime:19.47816787728711
+waitTime:-4.528966214376901
+waitTime:-1.6116092838551985
+waitTime:-1.0139649594191997
+waitTime:18.145870996178196
+waitTime:12.926685428244305
+waitTime:10.869110452682703
+waitTime:9.607730514265299
+waitTime:19.710551821007
+waitTime:15.057257974981
+waitTime:13.924441292406401
+waitTime:18.640206783302503
+waitTime:8.843735926251599
+waitTime:14.8928351688038
+waitTime:30.4561899047604
+chosen-taxiId:2, reqId:7, taxiLoc:9911, startLoc:6964, descLoc:2880, wait:-7.681029435468901
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:9199, time:4
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6177, time:7
+taxiList-id:9, loc:9669, time:8
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:1039, time:10
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:511, time:13
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:19, t:20, ogn:7913, des:6683
+waitTime:3.760916424160797
+waitTime:4.7371814105179
+waitTime:30.268298287602693
+waitTime:17.529781915565287
+waitTime:1.1894019560181945
+waitTime:1.4894715319141056
+waitTime:7.007538278853399
+waitTime:4.222859041367602
+waitTime:7.845963320379592
+waitTime:8.538016891499696
+waitTime:-2.589063615251302
+waitTime:3.9190176151891
+waitTime:10.112335372991495
+waitTime:3.6377480285847987
+waitTime:10.312501638093398
+waitTime:4.525430060582398
+waitTime:2.5674029908803
+waitTime:19.13588554217559
+waitTime:14.2587318876469
+waitTime:14.383386112338197
+chosen-taxiId:11, reqId:19, taxiLoc:1039, startLoc:7913, descLoc:6683, wait:-2.589063615251302
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:9199, time:4
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6177, time:7
+taxiList-id:9, loc:9669, time:8
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:511, time:13
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:12, t:22, ogn:7771, des:6288
+waitTime:-2.4876963835260035
+waitTime:4.563323455481504
+waitTime:26.511238252989294
+waitTime:7.7167288058480885
+waitTime:-2.2914876214037037
+waitTime:-2.2594663195342974
+waitTime:-2.8055148308638014
+waitTime:-5.5901940683496
+waitTime:0.34354573801959987
+waitTime:8.3641589364633
+waitTime:22.904031164116297
+waitTime:3.7451596601527033
+waitTime:6.63144579556959
+waitTime:-2.3361528406689978
+waitTime:0.49944852837619713
+waitTime:-5.287623049134801
+waitTime:-3.0974274135189006
+waitTime:10.8834065122726
+waitTime:4.4456787779297
+waitTime:8.718555707938998
+chosen-taxiId:8, reqId:12, taxiLoc:6177, startLoc:7771, descLoc:6288, wait:-5.5901940683496
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:9199, time:4
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:9669, time:8
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:511, time:13
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:22, t:28, ogn:4197, des:3645
+waitTime:-0.9107885347489031
+waitTime:-5.3557105960938
+waitTime:12.053908135308596
+waitTime:8.154865717237488
+waitTime:-17.0249881962759
+waitTime:-6.007235887620997
+waitTime:-8.4403458168268
+waitTime:12.0721514615236
+waitTime:-9.005637463421596
+waitTime:-8.686014392422404
+waitTime:10.756084570049097
+waitTime:-14.295372537104999
+waitTime:-8.102054779302598
+waitTime:-1.0339569303248997
+waitTime:3.689536366522301
+waitTime:-1.1470978086986996
+waitTime:-2.1043019680294
+waitTime:2.284284758374401
+waitTime:3.039048944457633
+waitTime:8.733395177142999
+chosen-taxiId:5, reqId:22, taxiLoc:9199, startLoc:4197, descLoc:3645, wait:-17.0249881962759
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:9669, time:8
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:511, time:13
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:18, t:31, ogn:6746, des:3102
+waitTime:5.573244605388293
+waitTime:2.6205409404949904
+waitTime:5.1053299604445925
+waitTime:6.694756805796988
+waitTime:17.3775347576996
+waitTime:2.61705254532691
+waitTime:-14.082445285190303
+waitTime:4.937962420657101
+waitTime:-15.902392130868897
+waitTime:-1.2964433056026081
+waitTime:0.45297834634999745
+waitTime:-8.5732038490981
+waitTime:-8.723417626619302
+waitTime:6.033858613099895
+waitTime:3.3143569895878997
+waitTime:2.1815403070133037
+waitTime:4.963513575395396
+waitTime:-4.911486234907002
+waitTime:1.5789400330171333
+waitTime:16.77949669685329
+chosen-taxiId:9, reqId:18, taxiLoc:9669, startLoc:6746, descLoc:3102, wait:-15.902392130868897
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:511, time:13
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:16, t:32, ogn:7608, des:6613
+waitTime:-7.444460600992301
+waitTime:-0.9772231652723988
+waitTime:23.1851221150394
+waitTime:4.520964813021788
+waitTime:18.095199703954403
+waitTime:-8.1828914934642
+waitTime:-6.0012788236901
+waitTime:22.1061898053921
+waitTime:23.618681170324212
+waitTime:2.8236123157094006
+waitTime:19.708267171289997
+waitTime:-1.795386960601192
+waitTime:3.3053296576197084
+waitTime:-16.4660574931713
+waitTime:-2.6963154644501053
+waitTime:-8.483387041961102
+waitTime:-9.0208525874488
+waitTime:7.687642519446296
+waitTime:1.2499147851033996
+waitTime:2.795130534009097
+chosen-taxiId:14, reqId:16, taxiLoc:511, startLoc:7608, descLoc:6613, wait:-16.4660574931713
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:163, time:5
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:21, t:33, ogn:753, des:9173
+waitTime:-12.023329275616803
+waitTime:-9.114952025038704
+waitTime:16.41616485204609
+waitTime:1.7455362157876841
+waitTime:9.957470844188098
+waitTime:-18.4699368192491
+waitTime:-8.7767074209242
+waitTime:16.434408178261094
+waitTime:15.480952310557903
+waitTime:-5.314116544056905
+waitTime:15.118341286786585
+waitTime:-9.933115820367501
+waitTime:-3.739798062565111
+waitTime:21.08087059434209
+waitTime:-5.4717440616842055
+waitTime:-11.258815639195202
+waitTime:-13.599721262073299
+waitTime:4.912213922212196
+waitTime:-1.5255138121307041
+waitTime:-4.192746789680999
+chosen-taxiId:6, reqId:21, taxiLoc:163, startLoc:753, descLoc:9173, wait:-18.4699368192491
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:397, time:16
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:3, t:38, ogn:811, des:7212
+waitTime:-16.379313382540104
+waitTime:-15.262838189416403
+waitTime:10.268278687668388
+waitTime:-2.610447891135614
+waitTime:3.809584679810399
+waitTime:22.502426335925396
+waitTime:-13.132691527847498
+waitTime:10.286522013883392
+waitTime:9.333066146180201
+waitTime:-11.462002708434603
+waitTime:8.97045512240889
+waitTime:-16.0810019847452
+waitTime:-9.88768422694281
+waitTime:14.932984429964396
+waitTime:-9.827728168607507
+waitTime:-15.6147997461185
+waitTime:-17.955705368996604
+waitTime:-0.6949947668830987
+waitTime:-5.881497919054002
+waitTime:-9.267324689842802
+chosen-taxiId:17, reqId:3, taxiLoc:397, startLoc:811, descLoc:7212, wait:-17.955705368996604
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:1428, time:15
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:20, t:40, ogn:1575, des:8564
+waitTime:-19.9620303731636
+waitTime:-15.540684002589302
+waitTime:6.343130568074596
+waitTime:-9.375599690147013
+waitTime:3.6486397791509972
+waitTime:19.7984825224101
+waitTime:-19.8978433268589
+waitTime:5.2641982584272995
+waitTime:9.0429874207504
+waitTime:-11.622947609094005
+waitTime:4.182541984606793
+waitTime:-16.2419468854046
+waitTime:-13.536661889345105
+waitTime:10.779110542724105
+waitTime:-16.592879967618906
+waitTime:-21.4295141428399
+waitTime:16.092308304166394
+waitTime:-6.2089219837225045
+waitTime:-12.646649718065401
+waitTime:-8.755778281698603
+chosen-taxiId:16, reqId:20, taxiLoc:1428, startLoc:1575, descLoc:8564, wait:-21.4295141428399
+taxiList-id:1, loc:1030, time:16
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:4, t:43, ogn:506, des:8602
+waitTime:-20.353370306618203
+waitTime:-17.767143546685602
+waitTime:7.7639733303991925
+waitTime:-6.584504815213716
+waitTime:1.305279322541196
+waitTime:19.998120978656193
+waitTime:-17.1067484519256
+waitTime:7.782216656614192
+waitTime:6.828760788911005
+waitTime:-13.9663080657038
+waitTime:6.466149765139686
+waitTime:-18.585307342014396
+waitTime:-12.391989584211998
+waitTime:12.428679072695193
+waitTime:-13.801785092685606
+waitTime:15.066987916726596
+waitTime:18.883403179099695
+waitTime:-3.4178271087892043
+waitTime:-9.855554843132104
+waitTime:-13.443370805062798
+chosen-taxiId:1, reqId:4, taxiLoc:1030, startLoc:506, descLoc:8602, wait:-20.353370306618203
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:2880, time:15
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:10, t:43, ogn:3586, des:8713
+waitTime:9.422313954617401
+waitTime:-24.039872896542903
+waitTime:1.8303215025234962
+waitTime:-7.044300130014914
+waitTime:-2.306396459021599
+waitTime:15.285673456859001
+waitTime:-21.048848424427803
+waitTime:0.7513891928762
+waitTime:-1.0875321990817
+waitTime:-17.4426174807853
+waitTime:-0.33026708094430646
+waitTime:-22.542031727012798
+waitTime:-18.049470954896204
+waitTime:6.266301477173002
+waitTime:-13.853489511630002
+waitTime:13.571479293560394
+waitTime:14.941303206597496
+waitTime:-10.3242178492266
+waitTime:-12.160116902794769
+waitTime:-5.435913102562402
+chosen-taxiId:2, reqId:10, taxiLoc:2880, startLoc:3586, descLoc:8713, wait:-24.039872896542903
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:9856, time:6
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:15, t:43, ogn:5708, des:749
+waitTime:20.564258777738203
+waitTime:8.981444814184599
+waitTime:-3.855608096087103
+waitTime:-12.824601666361115
+waitTime:4.936305507055401
+waitTime:9.599743858248402
+waitTime:-29.547253621828
+waitTime:-4.934540405734399
+waitTime:10.054412624039102
+waitTime:-13.737672556246803
+waitTime:-6.162002436599206
+waitTime:-21.0144330997423
+waitTime:-21.5395211914457
+waitTime:0.5803718785624028
+waitTime:-16.205001482570204
+waitTime:7.7911777572142
+waitTime:6.442898009197293
+waitTime:-16.991559037452397
+waitTime:-18.258064671722963
+waitTime:-0.8060695527908024
+chosen-taxiId:7, reqId:15, taxiLoc:9856, startLoc:5708, descLoc:749, wait:-29.547253621828
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:8819, time:11
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:23, t:45, ogn:7735, des:4856
+waitTime:14.326102337791198
+waitTime:13.236265817083897
+waitTime:4.014921451951093
+waitTime:-10.766458858440817
+waitTime:-2.4437725559068966
+waitTime:16.2490691002081
+waitTime:11.923504203599101
+waitTime:3.958115748626799
+waitTime:3.079708910462905
+waitTime:-17.7153599441519
+waitTime:2.876459474806296
+waitTime:-22.334359220462503
+waitTime:-16.14104146266011
+waitTime:8.679627194247097
+waitTime:-17.983739135912707
+waitTime:10.885033873499495
+waitTime:14.701449135872593
+waitTime:-7.599781152016305
+waitTime:-14.037508886359205
+waitTime:-13.912854661667907
+chosen-taxiId:12, reqId:23, taxiLoc:8819, startLoc:7735, descLoc:4856, wait:-22.334359220462503
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:4856, time:56
+taxiList-id:13, loc:5470, time:12
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:14, t:46, ogn:4013, des:8741
+waitTime:13.122969992515998
+waitTime:10.552653797178792
+waitTime:-2.3787710508285045
+waitTime:-11.253392683366915
+waitTime:1.394259578877005
+waitTime:11.076580903507
+waitTime:18.294248577987503
+waitTime:-3.4577033604758007
+waitTime:2.6131238388168967
+waitTime:-14.456714873049307
+waitTime:-4.539359634296307
+waitTime:19.955078746341293
+waitTime:-22.2585635082482
+waitTime:2.057208923821001
+waitTime:-15.770544028012399
+waitTime:9.3623867402084
+waitTime:10.732210653245495
+waitTime:-14.5333104025786
+waitTime:-16.36920945614677
+waitTime:-7.352967618944806
+chosen-taxiId:13, reqId:14, taxiLoc:5470, startLoc:4013, descLoc:8741, wait:-22.2585635082482
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:4238, time:17
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:4856, time:56
+taxiList-id:13, loc:8741, time:57
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:9, t:48, ogn:1457, des:6376
+waitTime:11.365562091058699
+waitTime:11.520205529691495
+waitTime:1.0543812052185935
+waitTime:-12.482519145833212
+waitTime:-5.404312802639403
+waitTime:13.2885288534756
+waitTime:10.2074439162067
+waitTime:0.9975755018942962
+waitTime:0.11916866373040591
+waitTime:-20.675900190884406
+waitTime:-0.08408077192620311
+waitTime:24.410357608711394
+waitTime:18.144411532263298
+waitTime:5.719086947514597
+waitTime:-19.69979942330511
+waitTime:9.1689735861071
+waitTime:12.985388848480195
+waitTime:-10.078031540208507
+waitTime:-15.7535691737516
+waitTime:-15.628914949060302
+chosen-taxiId:10, reqId:9, taxiLoc:4238, startLoc:1457, descLoc:6376, wait:-20.675900190884406
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:6376, time:57
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:4856, time:56
+taxiList-id:13, loc:8741, time:57
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:2305, time:14
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:5, t:50, ogn:1653, des:6466
+waitTime:8.850424996330297
+waitTime:10.8139436361583
+waitTime:-1.4607558895098052
+waitTime:-13.188781039366408
+waitTime:-7.919449897367798
+waitTime:10.773391758747199
+waitTime:8.703262173028598
+waitTime:-1.4425125632948088
+waitTime:-2.3959684309979963
+waitTime:24.834139954419086
+waitTime:-2.7585794547693077
+waitTime:22.064359804858597
+waitTime:15.629274437534896
+waitTime:3.2039498527861987
+waitTime:-20.406061316838304
+waitTime:8.462711692573905
+waitTime:12.279126954947
+waitTime:-12.424029344061303
+waitTime:-16.459831067284796
+waitTime:-15.3622025062176
+chosen-taxiId:15, reqId:5, taxiLoc:2305, startLoc:1653, descLoc:6466, wait:-20.406061316838304
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:6376, time:57
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:4856, time:56
+taxiList-id:13, loc:8741, time:57
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:6466, time:65
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4461, time:18
+taxiList-id:20, loc:7498, time:19
+
+request-id:8, t:51, ogn:3426, des:4889
+waitTime:5.753144590946398
+waitTime:3.525915138197796
+waitTime:-9.4055097098095
+waitTime:-18.28013134234791
+waitTime:-5.975565822692602
+waitTime:4.049842244526005
+waitTime:10.924423176417896
+waitTime:-10.484442019456797
+waitTime:-4.756701562752696
+waitTime:15.792210498257099
+waitTime:-11.566098293277303
+waitTime:12.928340087360297
+waitTime:17.7085248786914
+waitTime:-4.969529735159995
+waitTime:24.9000095237105
+waitTime:2.335648081227397
+waitTime:3.7054719942644923
+waitTime:-21.560049061559603
+waitTime:-23.39594811512776
+waitTime:-14.722793020514402
+chosen-taxiId:19, reqId:8, taxiLoc:4461, startLoc:3426, descLoc:4889, wait:-23.39594811512776
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:6376, time:57
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:4856, time:56
+taxiList-id:13, loc:8741, time:57
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:6466, time:65
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4889, time:60
+taxiList-id:20, loc:7498, time:19
+
+request-id:17, t:51, ogn:1346, des:4262
+waitTime:8.6092900207533
+waitTime:3.683581431681496
+waitTime:-4.6004129856216025
+waitTime:-20.31914324384321
+waitTime:-7.2949037745452046
+waitTime:8.854938968713903
+waitTime:5.9654200563336985
+waitTime:-5.679345295268899
+waitTime:-1.9005561329458018
+waitTime:20.597307222444996
+waitTime:-6.761001569089405
+waitTime:17.733436811548195
+waitTime:16.253820560357497
+waitTime:-0.16443301097209684
+waitTime:29.7051062478984
+waitTime:1.3323494880971012
+waitTime:5.1487647504701926
+waitTime:-17.152465537418706
+waitTime:20.205567236401443
+waitTime:-21.002769322414302
+chosen-taxiId:20, reqId:17, taxiLoc:7498, startLoc:1346, descLoc:4262, wait:-21.002769322414302
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:6376, time:57
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:4856, time:56
+taxiList-id:13, loc:8741, time:57
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:6466, time:65
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:7066, time:17
+taxiList-id:19, loc:4889, time:60
+taxiList-id:20, loc:4262, time:61
+
+request-id:6, t:52, ogn:9252, des:407
+waitTime:9.3451801410544
+waitTime:-0.7677588934560049
+waitTime:-12.340875728924303
+waitTime:-22.57380537400171
+waitTime:-5.744841487842898
+waitTime:1.1144762254112024
+waitTime:14.516458726525904
+waitTime:-13.419808038571599
+waitTime:-1.1646660126447017
+waitTime:12.856844479142296
+waitTime:-14.501464312392105
+waitTime:8.692912143267499
+waitTime:16.0548021888957
+waitTime:-7.904895754274797
+waitTime:21.9646435045957
+waitTime:-1.9580259504263964
+waitTime:-2.2182855790230036
+waitTime:-24.519515866911902
+waitTime:12.465104493098742
+waitTime:18.9904361902365
+chosen-taxiId:18, reqId:6, taxiLoc:7066, startLoc:9252, descLoc:407, wait:-24.519515866911902
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:3279, time:22
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:6376, time:57
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:4856, time:56
+taxiList-id:13, loc:8741, time:57
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:6466, time:65
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:407, time:62
+taxiList-id:19, loc:4889, time:60
+taxiList-id:20, loc:4262, time:61
+
+request-id:13, t:52, ogn:8233, des:7393
+waitTime:2.8650765770626023
+waitTime:9.821309197551102
+waitTime:-4.342286957134313
+waitTime:-14.181415477973612
+waitTime:-10.800980964992299
+waitTime:7.891860691122702
+waitTime:7.827528646934901
+waitTime:-4.324043630919302
+waitTime:-8.692524367271297
+waitTime:21.952608886794593
+waitTime:-5.640110522393808
+waitTime:20.304215223617696
+waitTime:12.747743369910395
+waitTime:0.32241878516169464
+waitTime:30.887952364749793
+waitTime:7.4700772539667
+waitTime:11.081347130521895
+waitTime:20.3737121051432
+waitTime:22.776345648470944
+waitTime:22.135958478039797
+chosen-taxiId:4, reqId:13, taxiLoc:3279, startLoc:8233, descLoc:7393, wait:-14.181415477973612
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:7393, time:67
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:6376, time:57
+taxiList-id:11, loc:6683, time:27
+taxiList-id:12, loc:4856, time:56
+taxiList-id:13, loc:8741, time:57
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:6466, time:65
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:407, time:62
+taxiList-id:19, loc:4889, time:60
+taxiList-id:20, loc:4262, time:61
+
+request-id:2, t:54, ogn:7079, des:7700
+waitTime:13.898958372345298
+waitTime:3.5422071118647978
+waitTime:-13.850042369786003
+waitTime:18.561560323777
+waitTime:-3.7817264962033974
+waitTime:-0.39469041545049777
+waitTime:18.526203928658408
+waitTime:-16.1670571473738
+waitTime:3.389112218646204
+waitTime:10.6018343792812
+waitTime:-21.094736095012298
+waitTime:14.546752299536394
+waitTime:18.0179171805352
+waitTime:-13.016197171038293
+waitTime:19.874133638613294
+waitTime:1.1909751682804028
+waitTime:-9.357404649733105
+waitTime:27.191376711079393
+waitTime:16.040769337688147
+waitTime:22.5661010348259
+chosen-taxiId:11, reqId:2, taxiLoc:6683, startLoc:7079, descLoc:7700, wait:-21.094736095012298
+taxiList-id:1, loc:8602, time:49
+taxiList-id:2, loc:8713, time:46
+taxiList-id:3, loc:6263, time:31
+taxiList-id:4, loc:7393, time:67
+taxiList-id:5, loc:3645, time:34
+taxiList-id:6, loc:9173, time:42
+taxiList-id:7, loc:749, time:50
+taxiList-id:8, loc:6288, time:31
+taxiList-id:9, loc:3102, time:38
+taxiList-id:10, loc:6376, time:57
+taxiList-id:11, loc:7700, time:59
+taxiList-id:12, loc:4856, time:56
+taxiList-id:13, loc:8741, time:57
+taxiList-id:14, loc:6613, time:34
+taxiList-id:15, loc:6466, time:65
+taxiList-id:16, loc:8564, time:43
+taxiList-id:17, loc:7212, time:42
+taxiList-id:18, loc:407, time:62
+taxiList-id:19, loc:4889, time:60
+taxiList-id:20, loc:4262, time:61
+
+ANS
+4, 5487, 11, 2, 2566, 3279
+3, 5043, 1, 6, 8036, 6263
+10, 2318, 24, 7, 1441, 4238
+1, 6928, 25, 7, 5893, 1030
+2, 9911, 7, 12, 6964, 2880
+11, 1039, 19, 20, 7913, 6683
+8, 6177, 12, 22, 7771, 6288
+5, 9199, 22, 28, 4197, 3645
+9, 9669, 18, 31, 6746, 3102
+14, 511, 16, 32, 7608, 6613
+6, 163, 21, 33, 753, 9173
+17, 397, 3, 38, 811, 7212
+16, 1428, 20, 40, 1575, 8564
+1, 1030, 4, 43, 506, 8602
+2, 2880, 10, 43, 3586, 8713
+7, 9856, 15, 43, 5708, 749
+12, 8819, 23, 45, 7735, 4856
+13, 5470, 14, 46, 4013, 8741
+10, 4238, 9, 48, 1457, 6376
+15, 2305, 5, 50, 1653, 6466
+19, 4461, 8, 51, 3426, 4889
+20, 7498, 17, 51, 1346, 4262
+18, 7066, 6, 52, 9252, 407
+4, 3279, 13, 52, 8233, 7393
+11, 6683, 2, 54, 7079, 7700

@@ -1,4 +1,5 @@
-2,Taxi,NA,1325
+2,Taxi,NA,2483
+2,Trans,NA,1325
 2,Trans,NA,1407
 2,Trans,NA,1333
 2,Trans,NA,1332
@@ -28,7 +29,6 @@
 2,Trans,NA,2228
 2,Trans,NA,2227
 2,Trans,NA,2451
-2,Trans,NA,2483
 2,Start,1,2483
 2,Trans,NA,2451
 2,Trans,NA,2227
@@ -67,7 +67,8 @@
 2,Trans,NA,1935
 2,Trans,NA,1976
 2,End,NA,1956
-5,Taxi,NA,2805
+5,Taxi,NA,2427
+5,Trans,NA,2805
 5,Trans,NA,2826
 5,Trans,NA,2849
 5,Trans,NA,2867
@@ -119,7 +120,6 @@
 5,Trans,NA,2372
 5,Trans,NA,2395
 5,Trans,NA,2394
-5,Trans,NA,2427
 5,Start,3,2427
 5,Trans,NA,2394
 5,Trans,NA,2395
@@ -197,7 +197,8 @@
 5,Trans,NA,5327
 5,Trans,NA,5380
 5,End,NA,5438
-1,Taxi,NA,5145
+1,Taxi,NA,4818
+1,Trans,NA,5145
 1,Trans,NA,5213
 1,Trans,NA,5321
 1,Trans,NA,5299
@@ -223,7 +224,6 @@
 1,Trans,NA,4953
 1,Trans,NA,4873
 1,Trans,NA,4770
-1,Trans,NA,4818
 1,Start,4,4818
 1,Trans,NA,4770
 1,Trans,NA,4873
@@ -276,7 +276,8 @@
 1,Trans,NA,10447
 1,Trans,NA,10520
 1,End,NA,10521
-1,Taxi,NA,10521
+1,Taxi,NA,11151
+1,Trans,NA,10521
 1,Trans,NA,10519
 1,Trans,NA,10621
 1,Trans,NA,10675
@@ -298,7 +299,6 @@
 1,Trans,NA,11130
 1,Trans,NA,11135
 1,Trans,NA,11142
-1,Trans,NA,11151
 1,Start,14,11151
 1,Trans,NA,11142
 1,Trans,NA,11135
@@ -400,7 +400,8 @@
 1,Trans,NA,4166
 1,Trans,NA,4160
 1,End,NA,3966
-4,Taxi,NA,4971
+4,Taxi,NA,7711
+4,Trans,NA,4971
 4,Trans,NA,4840
 4,Trans,NA,4841
 4,Trans,NA,4794
@@ -444,7 +445,6 @@
 4,Trans,NA,7345
 4,Trans,NA,7578
 4,Trans,NA,7701
-4,Trans,NA,7711
 4,Start,25,7711
 4,Trans,NA,7701
 4,Trans,NA,7578
@@ -535,7 +535,8 @@
 4,Trans,NA,2908
 4,Trans,NA,2940
 4,End,NA,2968
-3,Taxi,NA,749
+3,Taxi,NA,10367
+3,Trans,NA,749
 3,Trans,NA,790
 3,Trans,NA,854
 3,Trans,NA,855
@@ -647,11 +648,11 @@
 3,Trans,NA,10234
 3,Trans,NA,10230
 3,Trans,NA,10231
-3,Trans,NA,10232
-3,Trans,NA,10258
-3,Trans,NA,10293
-3,Trans,NA,10292
-3,Trans,NA,10314
+3,Trans,NA,10256
+3,Trans,NA,10288
+3,Trans,NA,10287
+3,Trans,NA,10341
+3,Trans,NA,10342
 3,Trans,NA,10390
 3,Trans,NA,10389
 3,Trans,NA,10401
@@ -666,7 +667,6 @@
 3,Trans,NA,10283
 3,Trans,NA,10267
 3,Trans,NA,10353
-3,Trans,NA,10367
 3,Start,47,10367
 3,Trans,NA,10353
 3,Trans,NA,10267

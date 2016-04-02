@@ -1,0 +1,85 @@
+request-id:3, t:1, ogn:7953, des:7832
+waitTime:15.981609754638303
+waitTime:5.4864842137858
+waitTime:13.230567489715302
+waitTime:20.341186334144695
+waitTime:10.7994493361774
+chosen-taxiId:2, reqId:3, taxiLoc:867, startLoc:7953, descLoc:7832, wait:5.4864842137858
+taxiList-id:1, loc:3395, time:0
+taxiList-id:2, loc:7832, time:11
+taxiList-id:3, loc:477, time:2
+taxiList-id:4, loc:8543, time:3
+taxiList-id:5, loc:8029, time:4
+
+request-id:1, t:3, ogn:1634, des:3651
+waitTime:15.576555766617005
+waitTime:14.478911460564898
+waitTime:12.1556462525507
+waitTime:19.936132346123397
+waitTime:10.9126107097588
+chosen-taxiId:5, reqId:1, taxiLoc:8029, startLoc:1634, descLoc:3651, wait:10.9126107097588
+taxiList-id:1, loc:3395, time:0
+taxiList-id:2, loc:7832, time:11
+taxiList-id:3, loc:477, time:2
+taxiList-id:4, loc:8543, time:3
+taxiList-id:5, loc:3651, time:23
+
+request-id:5, t:4, ogn:3260, des:7035
+waitTime:0.40090372760070014
+waitTime:21.788195927801
+waitTime:14.4284513264374
+waitTime:4.7604803071071
+waitTime:33.2669621977352
+chosen-taxiId:1, reqId:5, taxiLoc:3395, startLoc:3260, descLoc:7035, wait:0.40090372760070014
+taxiList-id:1, loc:7035, time:8
+taxiList-id:2, loc:7832, time:11
+taxiList-id:3, loc:477, time:2
+taxiList-id:4, loc:8543, time:3
+taxiList-id:5, loc:3651, time:23
+
+request-id:6, t:14, ogn:7459, des:8312
+waitTime:-1.5423672837703002
+waitTime:19.741916267555
+waitTime:12.382171666191379
+waitTime:4.622302145829103
+waitTime:29.737060387517893
+chosen-taxiId:1, reqId:6, taxiLoc:7035, startLoc:7459, descLoc:8312, wait:-1.5423672837703002
+taxiList-id:1, loc:8312, time:17
+taxiList-id:2, loc:7832, time:11
+taxiList-id:3, loc:477, time:2
+taxiList-id:4, loc:8543, time:3
+taxiList-id:5, loc:3651, time:23
+
+request-id:4, t:25, ogn:5177, des:1989
+waitTime:6.441377965207634
+waitTime:3.0183413374366967
+waitTime:-4.341403263926903
+waitTime:-13.817429609272459
+waitTime:13.929625321139438
+chosen-taxiId:4, reqId:4, taxiLoc:8543, startLoc:5177, descLoc:1989, wait:-13.817429609272459
+taxiList-id:1, loc:8312, time:17
+taxiList-id:2, loc:7832, time:11
+taxiList-id:3, loc:477, time:2
+taxiList-id:4, loc:1989, time:33
+taxiList-id:5, loc:3651, time:23
+
+request-id:2, t:47, ogn:6977, des:745
+waitTime:-15.0837937779243
+waitTime:-15.119963494384296
+waitTime:-21.418833042309014
+waitTime:4.924440672017543
+waitTime:-7.595546421992498
+chosen-taxiId:3, reqId:2, taxiLoc:477, startLoc:6977, descLoc:745, wait:-21.418833042309014
+taxiList-id:1, loc:8312, time:17
+taxiList-id:2, loc:7832, time:11
+taxiList-id:3, loc:745, time:70
+taxiList-id:4, loc:1989, time:33
+taxiList-id:5, loc:3651, time:23
+
+ANS
+2, 867, 3, 1, 7953, 7832
+5, 8029, 1, 3, 1634, 3651
+1, 3395, 5, 4, 3260, 7035
+1, 7035, 6, 14, 7459, 8312
+4, 8543, 4, 25, 5177, 1989
+3, 477, 2, 47, 6977, 745

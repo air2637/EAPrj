@@ -1,7 +1,3 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
-import java.util.TreeMap;
 
 public class Dijkstra {
 	List<Edge> edges;
@@ -21,8 +16,6 @@ public class Dijkstra {
 									// node, while value is the source node
 	Map<Node, Edge> predecessorEdge; // Destination Node is the key, shortest path Edge is the value
 	Node sourceNode;
-
-	Map<Integer, Stack<Edge>> allPath = new TreeMap<Integer, Stack<Edge>>();
 
 	public Dijkstra(Graph graph) {
 		this.nodes = new ArrayList<Node>(graph.nodes);
@@ -149,32 +142,12 @@ public class Dijkstra {
 			tmpPath = predecessorEdge.get(tmpNode);
 			tmpNode = tmpPath.source;
 			pathToReturn.push(tmpPath);
-			allPath.put(Integer.parseInt(tmpNode.id), pathToReturn);
-		}
-
-		try {
-			PrintWriter w = new PrintWriter(
-					new BufferedWriter(new FileWriter("mywriter.txt", false)));
-			for (Map.Entry<Integer, Stack<Edge>> m : allPath.entrySet()) {
-				w.print(m.getKey() + " - ");
-				for (int i = m.getValue().size() - 1; i >= 0; i--) {
-					Edge e = m.getValue().get(i);
-					w.print(e.id + ",");
-				}
-				w.println();
-			}
-			w.flush();
-			w.close();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 
 		return pathToReturn;
 	}
-	
-	
-	
-	public double shortestPathWeight(Node destinationNode){
+
+	public double shortestPathWeight(Node destinationNode) {
 		return getNodeDistance(destinationNode);
 	}
 

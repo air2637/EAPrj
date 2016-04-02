@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
-import java.util.TreeMap;
 
 import helper.InputReaderPartA;
 import ilog.concert.IloException;
@@ -17,15 +16,21 @@ import ilog.concert.IloNumVar;
 import ilog.cplex.IloCplex;
 
 public class Tester {
+	static Graph graph;
 	static List<Node> nodes = new ArrayList<Node>();
 	static List<Edge> edges = new ArrayList<Edge>();
 
+	static ArrayList<Integer[]> demands;
+	static ArrayList<Integer> taxiLocations;
+
 	final static String dataFolderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for Decision Support\\project\\supplementary\\supplementary\\training\\";
-	final static int NUM = 10;
+	final static int NUM = 5;
 	final static String INPUT_FILE = "sin_train_" + NUM + "_" + NUM + ".txt";
 
 	static PrintWriter w;
 	static PrintWriter w1;
+
+	static HashMap<Integer, Dijkstra> dijkstraMap = new HashMap<Integer, Dijkstra>();
 
 	public static void main(String[] args) {
 		Date startTime = new Date();
@@ -40,23 +45,17 @@ public class Tester {
 			e.printStackTrace();
 		}
 
-		RoadGraphReader roadGraphReader = new RoadGraphReader();
-
-		HashMap<String, Edge> loadedEdges = roadGraphReader.getLoadedEdges();
-		Iterator<String> iter = loadedEdges.keySet().iterator();
-		while (iter.hasNext()) {
-			String edgeId = (String) iter.next();
-			Edge edge = loadedEdges.get(edgeId);
-			addLane(edgeId, edge);
-		}
-
-		Graph graph = new Graph(nodes, edges);
+		loadGraph();
 
 		InputReaderPartA partA = new InputReaderPartA(dataFolderPath + INPUT_FILE, NUM);
-		ArrayList<Integer[]> demands = partA.getDemands();
-		ArrayList<Integer> taxiLocations = partA.getTaxiLocations();
+		demands = partA.getDemands();
+		taxiLocations = partA.getTaxiLocations();
 
-		int[][] result = runModel(graph, demands, taxiLocations);
+		createDijkstraMap();
+
+		int[][] result = runModel();
+
+		// printing for final
 		for (int i = 0; i < demands.size(); i++) {
 			for (int j = 0; j < taxiLocations.size(); j++) {
 				w.print(result[i][j] + " ");
@@ -67,18 +66,19 @@ public class Tester {
 					int t = taxiLocations.get(j);
 					int s = demands.get(i)[0];
 					int e = demands.get(i)[1];
+					Dijkstra dijkstra = dijkstraMap.get(s);
 
-					Stack<Edge> p = runDijkstra(graph, t, s);
+					Stack<Edge> p = dijkstra.shortestPath(getNode(t));
 					int porg = p.size();
 					while (!p.isEmpty()) {
 						if (p.size() == porg) {
-							w1.println("Taxi," + p.pop().id);
+							w1.println("Taxi," + p.remove(0).id);
 						} else {
-							w1.println("Trans," + p.pop().id);
+							w1.println("Trans," + p.remove(0).id);
 						}
 					}
 
-					Stack<Edge> p2 = runDijkstra(graph, s, e);
+					Stack<Edge> p2 = dijkstra.shortestPath(getNode(e));
 					int p2org = p2.size();
 					while (!p2.isEmpty()) {
 						if (p2.size() == 1) {
@@ -96,12 +96,11 @@ public class Tester {
 			w.println();
 		}
 
-		// Double t = getShortestPathDistanceBetweenNodes(graph, 0, 9);
-		// w.println("dist: " + t);
-		Date nowTime = new Date();
-
+		Date endTime = new Date();
 		System.out.println("run complete");
-		print("duration (min): " + ((nowTime.getTime() - startTime.getTime()) / 60000.0));
+		print("startTime: " + startTime);
+		print("endTime: " + endTime);
+		print("duration (min): " + ((endTime.getTime() - startTime.getTime()) / 60000.0));
 
 		w1.flush();
 		w1.close();
@@ -110,8 +109,7 @@ public class Tester {
 
 	}
 
-	private static int[][] runModel(Graph graph, ArrayList<Integer[]> demands,
-			ArrayList<Integer> taxiLocations) {
+	private static int[][] runModel() {
 
 		int[][] assignment = new int[demands.size()][taxiLocations.size()];
 
@@ -127,17 +125,26 @@ public class Tester {
 				}
 			}
 
+			double totalDistForDemand = 0.0; // to add the distances for demand
+
 			// Define the objective function
 			IloLinearNumExpr obj = model.linearNumExpr();
 			for (int i = 0; i < demands.size(); i++) {
+				int startLoc = demands.get(i)[0];
+				int descLoc = demands.get(i)[1];
+
+				Dijkstra dijkstra = dijkstraMap.get(startLoc);
+
+				// add to demands distance
+				totalDistForDemand += dijkstra.shortestPathWeight(getNode(descLoc));
+
 				for (int j = 0; j < taxiLocations.size(); j++) {
-					int a = demands.get(i)[0];
 					int b = taxiLocations.get(j);
 
-					System.out.println("demand: " + a + ", taxi: " + b);
+					System.out.println("demand: " + startLoc + ", taxi: " + b);
 
 					System.out.println("x[" + i + "][" + j + "] = " + x[i][j]);
-					obj.addTerm(getShortestPathDistanceBetweenNodes(graph, a, b), x[i][j]);
+					obj.addTerm(dijkstra.shortestPathWeight(getNode(b)), x[i][j]);
 				}
 			}
 			model.addMinimize(obj);
@@ -172,14 +179,6 @@ public class Tester {
 					}
 				}
 
-				// to add the distances for demand
-				double totalDistForDemand = 0.0;
-				for (Integer[] i : demands) {
-					int startPoint = i[0];
-					int endPoint = i[1];
-					totalDistForDemand += getShortestPathDistanceBetweenNodes(graph, startPoint,
-							endPoint);
-				}
 				print("totalDistForDemand: " + totalDistForDemand);
 				print("Final final value: " + (totalDistForDemand + objValue));
 
@@ -193,67 +192,62 @@ public class Tester {
 
 		System.out.println("model completed!");
 		return assignment;
-
 	}
 
-	private static double getShortestPathDistanceBetweenNodes(Graph graph, int n1, int n2) {
-		System.out.println("running shortestdistdistm, start: " + n1 + ", end: " + n2);
-
-		Stack<Edge> path = runDijkstra(graph, n1, n2);
-
-		Double total = 0.0;
-		for (int i = 0; i < path.size(); i++) {
-			System.out.print(path.get(i) + " ");
-			total += path.get(i).weight;
-		}
-		System.out.println();
-		System.out.println("path " + n1 + " to " + n2 + ": " + total);
-		return total;
-	}
-
-	private static Stack<Edge> runDijkstra(Graph graph, int start, int end) {
-		System.out.println("running dijkstra, start: " + start + ", end: " + end);
-
+	private static Dijkstra getDijkstra(Graph graph, int from) {
 		Dijkstra dijkstra = new Dijkstra(graph);
 
 		Node startNode = null;
-		Node endNode = null;
 		int breakCnt = 0;
 		for (int i = 0; i < nodes.size(); i++) {
 			if (breakCnt == 2) {
 				break;
 			}
-			if (nodes.get(i).equals(new Node(String.valueOf(start)))) {
+			if (nodes.get(i).equals(new Node(String.valueOf(from)))) {
 				startNode = nodes.get(i);
 				breakCnt++;
 			}
-			if (nodes.get(i).equals(new Node(String.valueOf(end)))) {
-				endNode = nodes.get(i);
+			if (nodes.get(i).equals(new Node(String.valueOf(from)))) {
 				breakCnt++;
 			}
 		}
 		dijkstra.execute(startNode);
+		return dijkstra;
+	}
 
-		Stack<Edge> path = dijkstra.shortestPath(endNode);
-
-		if (path == null) {
-			print("No available path between " + start + " and " + end);
+	private static void createDijkstraMap() {
+		for (int i = 0; i < demands.size(); i++) {
+			int startLoc = demands.get(i)[0];
+			System.out.println((i + 1) + ". Get dijkstra for " + startLoc);
+			Dijkstra d = getDijkstra(graph, startLoc);
+			dijkstraMap.put(startLoc, d);
 		}
-		return path;
 	}
 
-	private static TreeMap<Integer, Stack<Edge>> mapDikjstra(Graph graph, int startNode) {
+	private static Node getNode(int num) {
+		for (Node n : nodes) {
+			if (Integer.parseInt(n.id) == num) {
+				return n;
+			}
+		}
 		return null;
-	}
-
-	private static void addLane(String laneId, int sourceLocNo, int destLocNo, int duration) {
-		Edge lane = new Edge(laneId, nodes.get(sourceLocNo), nodes.get(destLocNo), duration);
-		edges.add(lane);
 	}
 
 	private static void print(String s) {
 		System.out.println(s);
 		w.println(s);
+	}
+
+	private static void loadGraph() {
+		RoadGraphReader roadGraphReader = new RoadGraphReader();
+		HashMap<String, Edge> loadedEdges = roadGraphReader.getLoadedEdges();
+		Iterator<String> iter = loadedEdges.keySet().iterator();
+		while (iter.hasNext()) {
+			String edgeId = (String) iter.next();
+			Edge edge = loadedEdges.get(edgeId);
+			addLane(edgeId, edge);
+		}
+		graph = new Graph(nodes, edges);
 	}
 
 	private static void addLane(String laneId, Edge edge) {
