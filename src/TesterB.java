@@ -7,62 +7,66 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Stack;
 
 import helper.InputReaderPartB;
 
 public class TesterB {
-	static List<Node> nodes = new ArrayList<Node>();
-	static List<Edge> edges = new ArrayList<Edge>();
-
 	static ArrayList<Integer[]> demands;
 	static ArrayList<Integer> taxiLocations;
 
 	final static String dataFolderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for Decision Support\\project\\supplementary\\supplementary\\training\\";
-	final static int NUM_TAXI = 100;
-	final static int NUM_DEMAND = 120;
-	final static String INPUT_FILE = "sin_train_" + NUM_TAXI + "_" + NUM_DEMAND + ".txt";
-
-	static Graph graph;
+	// {taxis, demands}
+	final static int[] NUM = new int[] { 5, 6 };
+	// final static int[] NUM = new int[] { 10, 15 };
+	// final static int[] NUM = new int[] { 20, 25 };
+	// final static int[] NUM = new int[] { 50, 60 };
+	// final static int[] NUM = new int[] { 100, 120 };
 
 	static PrintWriter w;
 	static PrintWriter w1;
 
+	static int GREEDY_CHOICE = 1; // ********* select greedy method
+
 	static HashMap<Integer, Dijkstra> dijkstraMap = new HashMap<Integer, Dijkstra>();
 
 	public static void main(String[] args) {
+
+		if (args.length != 0) {
+			NUM[0] = Integer.parseInt(args[0]);
+			NUM[1] = Integer.parseInt(args[1]);
+			GREEDY_CHOICE = Integer.parseInt(args[2]);
+		}
+
 		Date startTime = new Date();
 
+		String fileName = "part b/greedy" + GREEDY_CHOICE + "/summary-b-greedy" + GREEDY_CHOICE
+				+ "-" + NUM[0] + "_" + NUM[1];
+
 		try {
-			w = new PrintWriter(new BufferedWriter(new FileWriter(
-					"part b/summary-b-" + NUM_TAXI + "_" + NUM_DEMAND + ".txt", false)));
-			w1 = new PrintWriter(new BufferedWriter(new FileWriter(
-					"part b/results-b-" + NUM_TAXI + "_" + NUM_DEMAND + ".csv", false)));
-			System.out.println("running TestB. Size: " + NUM_TAXI + ", " + NUM_DEMAND);
+			w = new PrintWriter(new BufferedWriter(new FileWriter(fileName + ".txt", false)));
+			w1 = new PrintWriter(new BufferedWriter(new FileWriter(fileName + ".csv", false)));
+			System.out.println("running TestB. Size: " + NUM[0] + ", " + NUM[1]);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		loadGraph();
-
-		InputReaderPartB partB = new InputReaderPartB(new Integer[] { NUM_TAXI, NUM_DEMAND });
+		InputReaderPartB partB = new InputReaderPartB(new Integer[] { NUM[0], NUM[1] });
 		demands = partB.getDemands();
 		taxiLocations = partB.getTaxiLocations();
 
-		System.out.println("taxi size: " + taxiLocations.size());
-		System.out.println("demand size: " + demands.size());
-
 		createDijkstraMap();
 
-		runGreedy();
+		ArrayList<int[]> assignment = runGreedy();
 
-		Date nowTime = new Date();
+		printFinalCSV(assignment);
 
-		System.out.println("TestB run complete");
-		System.out.println(
-				"duration (min): " + ((nowTime.getTime() - startTime.getTime()) / 60000.0));
+		Date endTime = new Date();
+		System.out.println("Run complete");
+
+		print("Start Time: " + startTime);
+		print("End Time: " + endTime);
+		print("Duration (sec): " + ((endTime.getTime() - startTime.getTime()) / 1000.0));
 
 		w1.flush();
 		w1.close();
@@ -71,10 +75,12 @@ public class TesterB {
 
 	}
 
-	private static void runGreedy() {
+	private static ArrayList<int[]> runGreedy() {
+
+		double totalWait = 0.0;
 
 		// Set customer to taxi [taxi id, taxi loc, request id, request loc]
-		ArrayList<Integer[]> assignment = new ArrayList<Integer[]>();
+		ArrayList<int[]> assignment = new ArrayList<int[]>();
 
 		// Set taxi available list [ taxi id, taxi location, time available]
 		List<Double[]> taxiAvail = new ArrayList<Double[]>();
@@ -103,14 +109,16 @@ public class TesterB {
 			int requestTime = r[1];
 			int startLoc = r[2];
 			int descLoc = r[3];
-			print("request-id:" + requestId + ", t:" + requestTime + ", ogn:" + startLoc + ", des:"
-					+ descLoc);
+			// print("request-id:" + requestId + ", t:" + requestTime + ", ogn:" + startLoc + ",
+			// des:"
+			// + descLoc);
 
 			Dijkstra dijkstra = dijkstraMap.get(startLoc);
 
 			double shortestWait = -1;
 			int nearestTaxiLoc = -1;
 			int nearestTaxiId = -1;
+			boolean traversed = false;
 			double chosenJourneyTime = -1; // from taxiLoc to startLoc
 
 			for (Double[] i : taxiAvail) {
@@ -119,13 +127,36 @@ public class TesterB {
 				int taxiLoc = i[1].intValue();
 
 				// Choosing logic
-				double travelTime = dijkstra.shortestPathWeight(getNode(taxiLoc));
+				double travelTime = dijkstra.getShortestDistanceTo(Integer.toString(taxiLoc));
 				double setOffTime = requestTime - travelTime;
 				double waitTime = taxiAvailTime - setOffTime; // negative value means on time
 
-				print("waitTime:" + waitTime);
+				// print("waitTime:" + waitTime);
 
-				if (shortestWait == -1 || waitTime < shortestWait) {
+				// ***** greedy logic *****
+				boolean chosen = false;
+				if (GREEDY_CHOICE == 2) {
+					System.out.println("greedy logic 2");
+					// print("con1:" + (traversed == false));
+					// print("con2:" + (shortestWait > 0 && waitTime <= 0));
+					// print("con3:" + (shortestWait < 0 && waitTime < 0 && waitTime >
+					// shortestWait));
+					// print("con4:" + (shortestWait > 0 && waitTime > 0 && waitTime <
+					// shortestWait));
+					chosen = (traversed == false || (shortestWait > 0 && waitTime <= 0)
+							|| (shortestWait < 0 && waitTime < 0 && waitTime > shortestWait)
+							|| (shortestWait > 0 && waitTime > 0 && waitTime < shortestWait));
+					traversed = true;
+
+				} else if (GREEDY_CHOICE == 1) {
+					System.out.println("greedy logic 1");
+					chosen = (traversed == false || waitTime < shortestWait);
+					traversed = true;
+
+				}
+				// ***** greedy logic *****
+
+				if (chosen) {
 					shortestWait = waitTime;
 					nearestTaxiLoc = taxiLoc;
 					nearestTaxiId = taxiId;
@@ -135,8 +166,9 @@ public class TesterB {
 			print("chosen-taxiId:" + nearestTaxiId + ", reqId:" + requestId + ", taxiLoc:"
 					+ nearestTaxiLoc + ", startLoc:" + startLoc + ", descLoc:" + descLoc + ", wait:"
 					+ shortestWait);
+
 			// add to assignment
-			assignment.add(new Integer[] { nearestTaxiId, nearestTaxiLoc, requestId, requestTime,
+			assignment.add(new int[] { nearestTaxiId, nearestTaxiLoc, requestId, requestTime,
 					startLoc, descLoc });
 
 			// Update taxi avail time
@@ -144,6 +176,7 @@ public class TesterB {
 			if (shortestWait < 0) {
 				shortestWait = 0;
 			}
+			totalWait += shortestWait;
 			taxi[1] = (double) descLoc; // update taxi location
 			taxi[2] = requestTime + shortestWait + chosenJourneyTime; // update available time
 			taxiAvail.add(taxi);
@@ -156,21 +189,28 @@ public class TesterB {
 			});
 
 			// taxi id, taxi location, time available
-			for (Double[] i : taxiAvail) {
-				print("taxiList-id:" + i[0].intValue() + ", loc:" + i[1].intValue() + ", time:"
-						+ i[2].intValue());
-			}
-			print("");
+			// for (Double[] i : taxiAvail) {
+			// print("taxiList-id:" + i[0].intValue() + ", loc:" + i[1].intValue() + ", time:"
+			// + i[2].intValue());
+			// }
+			// print("");
 		}
 
-		print("ANS");
-		for (Integer[] i : assignment) {
+		print("\nANS");
+		for (int[] i : assignment) {
 			print(i[0] + ", " + i[1] + ", " + i[2] + ", " + i[3] + ", " + i[4] + ", " + i[5]);
 		}
 
+		print("");
+		print("Total Wait: " + totalWait);
+		return assignment;
+
+	}
+
+	private static void printFinalCSV(ArrayList<int[]> assignment) {
 		// print to w1
 		// [taxi id, taxi loc, request id, request loc, desc loc]
-		for (Integer[] i : assignment) {
+		for (int[] i : assignment) {
 			int taxiId = i[0];
 			int taxiLoc = i[1];
 			// int requestId = i[2];
@@ -180,95 +220,49 @@ public class TesterB {
 
 			Dijkstra dijkstra = dijkstraMap.get(startLoc);
 
-			Stack<Edge> p1 = dijkstra.shortestPath(getNode(taxiLoc));
-			Stack<Edge> p2 = dijkstra.shortestPath(getNode(descLoc));
+			List<Edge> p1 = dijkstra.getShortestPathTo(Integer.toString(taxiLoc));
+			List<Edge> p2 = dijkstra.getShortestPathTo(Integer.toString(descLoc));
 
 			// taxi travel to startLoc
-			w1.println(taxiId + ",Taxi,NA," + p1.pop().id); // remove first
-			while (!p1.isEmpty()) {
-				w1.println(taxiId + ",Trans,NA," + p1.remove(0).id);
-			}
-
-			// start travelling journey
-			w1.println(taxiId + ",Start," + requestTime + "," + p2.pop().id);
-			while (!p2.isEmpty()) {
-				if (p2.size() == 1) {
-					w1.println(taxiId + ",End,NA," + p2.pop().id);
+			for (int a = p1.size() - 1; a >= 0; a--) {
+				if (a == p1.size() - 1) {
+					w1.println(taxiId + ",Taxi,NA," + p1.get(a).id);
 				} else {
-					w1.println(taxiId + ",Trans,NA," + p2.pop().id);
+					w1.println(taxiId + ",Trans,NA," + p1.get(a).id);
 				}
 			}
 
+			// start travelling journey
+			for (int a = 0; a < p2.size(); a++) {
+				if (a == 0) {
+					w1.println(taxiId + ",Start," + requestTime + "," + p2.get(a).id);
+				} else if (a == p2.size() - 1) {
+					w1.println(taxiId + ",End,NA," + p2.get(a).id);
+				} else {
+					w1.println(taxiId + ",Trans,NA," + p2.get(a).id);
+				}
+			}
 		}
-
 	}
 
-	private static Dijkstra getDijkstra(Graph graph, int from) {
-		Dijkstra dijkstra = new Dijkstra(graph);
-
-		Node startNode = null;
-		int breakCnt = 0;
-		for (int i = 0; i < nodes.size(); i++) {
-			if (breakCnt == 2) {
-				break;
-			}
-			if (nodes.get(i).equals(new Node(String.valueOf(from)))) {
-				startNode = nodes.get(i);
-				breakCnt++;
-			}
-			if (nodes.get(i).equals(new Node(String.valueOf(from)))) {
-				breakCnt++;
-			}
-		}
-		dijkstra.execute(startNode);
-		return dijkstra;
+	private static Dijkstra getDijkstra(String source) {
+		Dijkstra d = new Dijkstra();
+		d.computePaths(source);
+		return d;
 	}
 
 	private static void createDijkstraMap() {
 		for (int i = 0; i < demands.size(); i++) {
 			int startLoc = demands.get(i)[0];
 			System.out.println((i + 1) + ". Get dijkstra for " + startLoc);
-			Dijkstra d = getDijkstra(graph, startLoc);
+			Dijkstra d = getDijkstra(Integer.toString(startLoc));
 			dijkstraMap.put(startLoc, d);
 		}
-	}
-
-	private static Node getNode(int num) {
-		for (Node n : nodes) {
-			if (Integer.parseInt(n.id) == num) {
-				return n;
-			}
-		}
-		return null;
 	}
 
 	private static void print(String s) {
 		System.out.println(s);
 		w.println(s);
-	}
-
-	private static void loadGraph() {
-		RoadGraphReader roadGraphReader = new RoadGraphReader();
-		HashMap<String, Edge> loadedEdges = roadGraphReader.getLoadedEdges();
-		Iterator<String> iter = loadedEdges.keySet().iterator();
-		while (iter.hasNext()) {
-			String edgeId = (String) iter.next();
-			Edge edge = loadedEdges.get(edgeId);
-			addLane(edgeId, edge);
-		}
-		graph = new Graph(nodes, edges);
-	}
-
-	private static void addLane(String laneId, Edge edge) {
-		Edge lane = new Edge(laneId, edge.source, edge.destination, edge.weight);
-		Edge lane2 = new Edge(laneId, edge.destination, edge.source, edge.weight);
-		if (!nodes.contains(edge.source))
-			nodes.add(edge.source);
-		if (!nodes.contains(edge.destination))
-			nodes.add(edge.destination);
-
-		edges.add(lane);
-		edges.add(lane2);
 	}
 
 }

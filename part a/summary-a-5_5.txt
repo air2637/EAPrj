@@ -1,11 +1,12 @@
-obj value: 49.4523154359595
-totalDistForDemand: 49.43442388766071
-Final final value: 98.8867393236202
+Obj value: 49.4523154359595
+Total time for all demands: 49.43442388766071
+Grand total duration (Obj value + demands): 98.8867393236202
+
 1 0 0 0 0 
 0 0 0 1 0 
 0 0 1 0 0 
 0 0 0 0 1 
 0 1 0 0 0 
-startTime: Fri Apr 01 23:47:16 SGT 2016
-endTime: Fri Apr 01 23:48:16 SGT 2016
-duration (min): 1.0023833333333334
+Start Time: Tue Apr 05 19:22:49 SGT 2016
+End Time: Tue Apr 05 19:22:49 SGT 2016
+Duration (sec): 0.593
