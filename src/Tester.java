@@ -38,11 +38,11 @@ public class Tester {
 
 		Date startTime = new Date();
 
-		String fileName = "part a/summary-a-" + NUM + "_" + NUM;
-
 		try {
-			w = new PrintWriter(new BufferedWriter(new FileWriter(fileName + ".txt", false)));
-			w1 = new PrintWriter(new BufferedWriter(new FileWriter(fileName + ".csv", false)));
+			w = new PrintWriter(new BufferedWriter(
+					new FileWriter("part a/summary-a-" + NUM + "_" + NUM + ".txt", false)));
+			w1 = new PrintWriter(new BufferedWriter(
+					new FileWriter("part a/results-a-" + NUM + "_" + NUM + ".csv", false)));
 			System.out.println("running Test A. Size: " + NUM);
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -10,6 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import helper.InputReaderPartB;
+import ilog.concert.IloException;
+import ilog.concert.IloLinearNumExpr;
+import ilog.concert.IloNumVar;
+import ilog.cplex.IloCplex;
 
 public class TesterB {
 	static ArrayList<Integer[]> demands;
@@ -40,12 +44,19 @@ public class TesterB {
 
 		Date startTime = new Date();
 
-		String fileName = "part b/greedy" + GREEDY_CHOICE + "/summary-b-greedy" + GREEDY_CHOICE
-				+ "-" + NUM[0] + "_" + NUM[1];
-
 		try {
-			w = new PrintWriter(new BufferedWriter(new FileWriter(fileName + ".txt", false)));
-			w1 = new PrintWriter(new BufferedWriter(new FileWriter(fileName + ".csv", false)));
+			w = new PrintWriter(
+					new BufferedWriter(
+							new FileWriter(
+									"part b/greedy" + GREEDY_CHOICE + "/summary-b-greedy"
+											+ GREEDY_CHOICE + "-" + NUM[0] + "_" + NUM[1] + ".txt",
+									false)));
+			w1 = new PrintWriter(
+					new BufferedWriter(
+							new FileWriter(
+									"part b/greedy" + GREEDY_CHOICE + "/results-b-greedy"
+											+ GREEDY_CHOICE + "-" + NUM[0] + "_" + NUM[1] + ".csv",
+									false)));
 			System.out.println("running TestB. Size: " + NUM[0] + ", " + NUM[1]);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -57,7 +68,8 @@ public class TesterB {
 
 		createDijkstraMap();
 
-		ArrayList<int[]> assignment = runGreedy();
+		// ArrayList<int[]> assignment = runGreedy();
+		ArrayList<int[]> assignment = runModel();
 
 		printFinalCSV(assignment);
 
@@ -73,6 +85,111 @@ public class TesterB {
 		w.flush();
 		w.close();
 
+	}
+
+	private static ArrayList<int[]> runModel() {
+
+		ArrayList<int[]> assignment = new ArrayList<int[]>();
+
+		try {
+			// Define an empty model
+			IloCplex model = new IloCplex();
+
+			// Define the binary/decision variables
+			// Xijk - if taxi k serves customer i after customer j
+			IloNumVar[][][] x = new IloNumVar[demands.size()][demands.size()][taxiLocations.size()];
+			for (int i = 0; i < demands.size(); i++) {
+				for (int j = 0; j < demands.size(); j++) {
+					for (int k = 0; k < taxiLocations.size(); k++) {
+						x[i][j][k] = model.boolVar();
+					}
+				}
+			}
+			// Yik - if customer i is served by taxi k
+			IloNumVar[][] y = new IloNumVar[demands.size()][taxiLocations.size()];
+			for (int i = 0; i < demands.size(); i++) {
+				for (int k = 0; k < taxiLocations.size(); k++) {
+					y[i][k] = model.boolVar();
+				}
+			}
+
+			double totalDistForDemand = 0.0; // to add the distances for demand
+
+			// Define the objective function
+			IloLinearNumExpr obj = model.linearNumExpr();
+			// Setting Yik
+			for (int i = 0; i < demands.size(); i++) {
+				int startLoc = demands.get(i)[0];
+				int requestTime = demands.get(i)[2];
+				Dijkstra dijkstra = dijkstraMap.get(startLoc);
+
+				for (int k = 0; k < taxiLocations.size(); k++) {
+					int taxiLoc = taxiLocations.get(k);
+					double travelTime = dijkstra.getShortestDistanceTo(Integer.toString(taxiLoc));
+
+					double waitTime = travelTime - requestTime;
+					if (waitTime < 0) {
+						waitTime = 0;
+					}
+
+					obj.addTerm(waitTime, y[i][k]);
+				}
+			}
+			// Setting Xijk
+			// for (int i = 0; i < demands.size(); i++) {
+			// int descLoc = demands.get(i)[1];
+			// Dijkstra dijkstra = dijkstraMap.get(Integer.toString(descLoc));
+			//
+			// for (int j = 0; j < demands.size(); j++) {
+			// int startLoc = demands.get(j)[0];
+			// double dist = dijkstra.getShortestDistanceTo(Integer.toString(startLoc));
+			//
+			// for (int k = 0; k < taxiLocations.size(); k++) {
+			// obj.addTerm(dist, x[i][j][k]);
+			// }
+			// }
+			// }
+			model.addMinimize(obj);
+
+			// Add the constraints
+			// For every demand, only 1 taxi serves
+			for (int i = 0; i < demands.size(); i++) {
+				IloLinearNumExpr rowSum = model.linearNumExpr();
+				for (int k = 0; k < taxiLocations.size(); k++) {
+					rowSum.addTerm(1, y[i][k]);
+				}
+				model.addEq(rowSum, 1);
+			}
+
+			int[][] assign = new int[demands.size()][taxiLocations.size()];
+
+			// Solve the model
+			boolean isSolved = model.solve();
+			if (isSolved) {
+				double objValue = model.getObjValue();
+				print("Obj value: " + objValue);
+
+				for (int i = 0; i < demands.size(); i++) {
+					for (int k = 0; k < taxiLocations.size(); k++) {
+						assign[i][k] = (int) model.getValue(y[i][k]);
+						System.out.print(assign[i][k] + " ");
+					}
+					System.out.println();
+				}
+
+				print("Total time for all demands: " + totalDistForDemand);
+				print("Grand total duration (Obj value + demands): "
+						+ (totalDistForDemand + objValue));
+
+			} else {
+				print("Model not solved :(");
+			}
+			print("");
+
+		} catch (IloException e) {
+			e.printStackTrace();
+		}
+		return assignment;
 	}
 
 	private static ArrayList<int[]> runGreedy() {
