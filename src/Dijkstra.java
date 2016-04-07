@@ -82,8 +82,8 @@ public class Dijkstra {
 		}
 	}
 
-	public void computePaths(String source) {
-		Vertex v_start = verticesHashMap.get(source);
+	public void computePaths(int source) {
+		Vertex v_start = verticesHashMap.get(Integer.toString(source));
 		computePaths(v_start);
 	}
 
@@ -98,8 +98,8 @@ public class Dijkstra {
 		return -1;
 	}
 
-	public double getShortestDistanceTo(String target) {
-		Vertex v_end = verticesHashMap.get(target);
+	public double getShortestDistanceTo(int target) {
+		Vertex v_end = verticesHashMap.get(Integer.toString(target));
 		return getShortestDistanceTo(v_end, vertices);
 	}
 
@@ -128,8 +128,8 @@ public class Dijkstra {
 		return path;
 	}
 
-	public List<Edge> getShortestPathTo(String target) {
-		Vertex v_end = verticesHashMap.get(target);
+	public List<Edge> getShortestPathTo(int target) {
+		Vertex v_end = verticesHashMap.get(Integer.toString(target));
 		return getShortestPathTo(v_end);
 	}
 

@@ -25,8 +25,7 @@ public class Tester {
 	// static int NUM = 100;
 	static String INPUT_FILE = "sin_train_" + NUM + "_" + NUM + ".txt";
 
-	static PrintWriter w;
-	static PrintWriter w1;
+	static PrintWriter summaryWriter, resultsWriter;
 
 	static HashMap<Integer, Dijkstra> dijkstraMap = new HashMap<Integer, Dijkstra>();
 
@@ -39,9 +38,9 @@ public class Tester {
 		Date startTime = new Date();
 
 		try {
-			w = new PrintWriter(new BufferedWriter(
+			summaryWriter = new PrintWriter(new BufferedWriter(
 					new FileWriter("part a/summary-a-" + NUM + "_" + NUM + ".txt", false)));
-			w1 = new PrintWriter(new BufferedWriter(
+			resultsWriter = new PrintWriter(new BufferedWriter(
 					new FileWriter("part a/results-a-" + NUM + "_" + NUM + ".csv", false)));
 			System.out.println("running Test A. Size: " + NUM);
 		} catch (IOException e) {
@@ -65,10 +64,10 @@ public class Tester {
 		print("End Time: " + endTime);
 		print("Duration (sec): " + ((endTime.getTime() - startTime.getTime()) / 1000.0));
 
-		w1.flush();
-		w1.close();
-		w.flush();
-		w.close();
+		resultsWriter.flush();
+		resultsWriter.close();
+		summaryWriter.flush();
+		summaryWriter.close();
 
 	}
 
@@ -78,7 +77,7 @@ public class Tester {
 		// printing for final
 		for (int i = 0; i < demands.size(); i++) {
 			for (int j = 0; j < taxiLocations.size(); j++) {
-				w.print(result[i][j] + " ");
+				summaryWriter.print(result[i][j] + " ");
 				System.out.print(result[i][j] + " ");
 
 				// printing to final
@@ -88,30 +87,30 @@ public class Tester {
 					int e = demands.get(i)[1];
 					Dijkstra dijkstra = dijkstraMap.get(s);
 
-					List<Edge> p = dijkstra.getShortestPathTo(Integer.toString(t));
+					List<Edge> p = dijkstra.getShortestPathTo(t);
 					for (int a = p.size() - 1; a >= 0; a--) {
 						if (a == p.size() - 1) {
-							w1.println("Taxi," + p.get(a).id);
+							resultsWriter.println("Taxi," + p.get(a).id);
 						} else {
-							w1.println("Trans," + p.get(a).id);
+							resultsWriter.println("Trans," + p.get(a).id);
 						}
 					}
 
-					List<Edge> p2 = dijkstra.getShortestPathTo(Integer.toString(e));
+					List<Edge> p2 = dijkstra.getShortestPathTo(e);
 					for (int a = 0; a < p2.size(); a++) {
 						if (a == 0) {
-							w1.println("Start," + p2.get(a).id);
+							resultsWriter.println("Start," + p2.get(a).id);
 						} else if (a == p2.size() - 1) {
-							w1.println("End," + p2.get(a).id);
+							resultsWriter.println("End," + p2.get(a).id);
 						} else {
-							w1.println("Trans," + p2.get(a).id);
+							resultsWriter.println("Trans," + p2.get(a).id);
 						}
 					}
 
 				}
 			}
 			System.out.println();
-			w.println();
+			summaryWriter.println();
 		}
 		System.out.println("Printing to final CSV done");
 	}
@@ -144,14 +143,14 @@ public class Tester {
 				Dijkstra dijkstra = dijkstraMap.get(startLoc);
 
 				// add to demands distance
-				totalDistForDemand += dijkstra.getShortestDistanceTo(Integer.toString(descLoc));
+				totalDistForDemand += dijkstra.getShortestDistanceTo(descLoc);
 
 				for (int j = 0; j < taxiLocations.size(); j++) {
 					int b = taxiLocations.get(j);
 
 					System.out.println("demand: " + startLoc + ", taxi: " + b);
 					System.out.println("x[" + i + "][" + j + "] = " + x[i][j]);
-					obj.addTerm(dijkstra.getShortestDistanceTo(Integer.toString(b)), x[i][j]);
+					obj.addTerm(dijkstra.getShortestDistanceTo(b), x[i][j]);
 
 				}
 			}
@@ -204,7 +203,7 @@ public class Tester {
 		return assignment;
 	}
 
-	private static Dijkstra getDijkstra(String source) {
+	private static Dijkstra getDijkstra(int source) {
 		Dijkstra d = new Dijkstra();
 		d.computePaths(source);
 		return d;
@@ -214,14 +213,14 @@ public class Tester {
 		for (int i = 0; i < demands.size(); i++) {
 			int startLoc = demands.get(i)[0];
 			System.out.println((i + 1) + ". Get dijkstra for " + startLoc);
-			Dijkstra d = getDijkstra(Integer.toString(startLoc));
+			Dijkstra d = getDijkstra(startLoc);
 			dijkstraMap.put(startLoc, d);
 		}
 	}
 
 	private static void print(String s) {
 		System.out.println(s);
-		w.println(s);
+		summaryWriter.println(s);
 	}
 
 }

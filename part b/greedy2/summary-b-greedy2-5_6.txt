@@ -1,9 +1,9 @@
-chosen-taxiId:2, reqId:3, taxiLoc:867, startLoc:7953, descLoc:7832, wait:5.4864842137858
-chosen-taxiId:5, reqId:1, taxiLoc:8029, startLoc:1634, descLoc:3651, wait:10.9126107097588
+chosen-taxiId:2, reqId:3, taxiLoc:867, startLoc:7953, descLoc:7832, wait:4.4864842137858
+chosen-taxiId:5, reqId:1, taxiLoc:8029, startLoc:1634, descLoc:3651, wait:6.9126107097588
 chosen-taxiId:1, reqId:5, taxiLoc:3395, startLoc:3260, descLoc:7035, wait:0.40090372760070014
 chosen-taxiId:1, reqId:6, taxiLoc:7035, startLoc:7459, descLoc:8312, wait:-1.5423672837703002
-chosen-taxiId:3, reqId:4, taxiLoc:477, startLoc:5177, descLoc:1989, wait:-4.341403263926903
-chosen-taxiId:5, reqId:2, taxiLoc:3651, startLoc:6977, descLoc:745, wait:-7.595546421992498
+chosen-taxiId:3, reqId:4, taxiLoc:477, startLoc:5177, descLoc:1989, wait:-6.341403263926903
+chosen-taxiId:5, reqId:2, taxiLoc:3651, startLoc:6977, descLoc:745, wait:-11.595546421992498
 
 ANS
 2, 867, 3, 1, 7953, 7832
@@ -13,7 +13,7 @@ ANS
 3, 477, 4, 25, 5177, 1989
 5, 3651, 2, 47, 6977, 745
 
-Total Wait: 16.799998651145298
-Start Time: Tue Apr 05 19:13:05 SGT 2016
-End Time: Tue Apr 05 19:13:06 SGT 2016
-Duration (sec): 0.238
+Total Wait: 11.799998651145298
+Start Time: Wed Apr 06 22:15:45 SGT 2016
+End Time: Wed Apr 06 22:15:45 SGT 2016
+Duration (sec): 0.202

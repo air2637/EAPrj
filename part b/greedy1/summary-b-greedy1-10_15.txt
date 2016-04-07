@@ -1,37 +1,457 @@
-chosen-taxiId:3, reqId:1, taxiLoc:238, startLoc:2536, descLoc:5359, wait:16.1948704644161
-chosen-taxiId:4, reqId:2, taxiLoc:8461, startLoc:2187, descLoc:8017, wait:3.1011458879672
-chosen-taxiId:5, reqId:4, taxiLoc:3368, startLoc:1171, descLoc:1028, wait:4.992897574876799
-chosen-taxiId:1, reqId:13, taxiLoc:7032, startLoc:3332, descLoc:2615, wait:0.3830877486255
-chosen-taxiId:8, reqId:15, taxiLoc:805, startLoc:612, descLoc:7846, wait:-1.4449864813205977
-chosen-taxiId:6, reqId:5, taxiLoc:9319, startLoc:8574, descLoc:7245, wait:-6.258275262652202
-chosen-taxiId:7, reqId:8, taxiLoc:4788, startLoc:961, descLoc:217, wait:-4.031768951240002
-chosen-taxiId:9, reqId:9, taxiLoc:8248, startLoc:663, descLoc:8815, wait:-5.606760210572601
-chosen-taxiId:2, reqId:11, taxiLoc:6506, startLoc:407, descLoc:6994, wait:-4.034433871069901
-chosen-taxiId:4, reqId:7, taxiLoc:8017, startLoc:1440, descLoc:4684, wait:-10.219086429416802
-chosen-taxiId:5, reqId:12, taxiLoc:1028, startLoc:7592, descLoc:7247, wait:-7.677663159253502
-chosen-taxiId:10, reqId:14, taxiLoc:6119, startLoc:7946, descLoc:8399, wait:-11.559522052743702
-chosen-taxiId:6, reqId:6, taxiLoc:7245, startLoc:9796, descLoc:8196, wait:-8.120103595413898
-chosen-taxiId:1, reqId:3, taxiLoc:2615, startLoc:1603, descLoc:2795, wait:-26.920966055449703
-chosen-taxiId:3, reqId:10, taxiLoc:5359, startLoc:6996, descLoc:4045, wait:-15.046938109664602
+chosen-taxiId:8, reqId:1, taxiLoc:805, startLoc:2536, descLoc:5359, wait:13.128757439410395
+chosen-taxiId:4, reqId:2, taxiLoc:8461, startLoc:2187, descLoc:8017, wait:0.10114588796720003
+chosen-taxiId:3, reqId:4, taxiLoc:238, startLoc:1171, descLoc:1028, wait:0.5599395633596016
+chosen-taxiId:5, reqId:13, taxiLoc:3368, startLoc:3332, descLoc:2615, wait:-6.6643285549668
+chosen-taxiId:9, reqId:15, taxiLoc:8248, startLoc:612, descLoc:7846, wait:-3.4918963323515975
+chosen-taxiId:7, reqId:5, taxiLoc:4788, startLoc:8574, descLoc:7245, wait:-12.145815369209501
+chosen-taxiId:6, reqId:8, taxiLoc:9319, startLoc:961, descLoc:217, wait:-9.6608292899781
+chosen-taxiId:5, reqId:9, taxiLoc:2615, startLoc:663, descLoc:8815, wait:-7.911816529993302
+chosen-taxiId:1, reqId:11, taxiLoc:7032, startLoc:407, descLoc:6994, wait:-9.003546169356998
+chosen-taxiId:10, reqId:7, taxiLoc:6119, startLoc:1440, descLoc:4684, wait:-15.241317246404103
+chosen-taxiId:3, reqId:12, taxiLoc:1028, startLoc:7592, descLoc:7247, wait:-12.543579182287898
+chosen-taxiId:2, reqId:14, taxiLoc:6506, startLoc:7946, descLoc:8399, wait:-18.5146787664109
+chosen-taxiId:7, reqId:6, taxiLoc:7245, startLoc:9796, descLoc:8196, wait:-9.007643701971197
+chosen-taxiId:4, reqId:3, taxiLoc:8017, startLoc:1603, descLoc:2795, wait:-33.083921218454705
+chosen-taxiId:8, reqId:10, taxiLoc:5359, startLoc:6996, descLoc:4045, wait:-19.17916415967601
 
 ANS
-3, 238, 1, 0, 2536, 5359
+8, 805, 1, 0, 2536, 5359
 4, 8461, 2, 5, 2187, 8017
-5, 3368, 4, 6, 1171, 1028
-1, 7032, 13, 7, 3332, 2615
-8, 805, 15, 16, 612, 7846
-6, 9319, 5, 18, 8574, 7245
-7, 4788, 8, 23, 961, 217
-9, 8248, 9, 24, 663, 8815
-2, 6506, 11, 24, 407, 6994
-4, 8017, 7, 28, 1440, 4684
-5, 1028, 12, 31, 7592, 7247
-10, 6119, 14, 33, 7946, 8399
-6, 7245, 6, 36, 9796, 8196
-1, 2615, 3, 47, 1603, 2795
-3, 5359, 10, 52, 6996, 4045
+3, 238, 4, 6, 1171, 1028
+5, 3368, 13, 7, 3332, 2615
+9, 8248, 15, 16, 612, 7846
+7, 4788, 5, 18, 8574, 7245
+6, 9319, 8, 23, 961, 217
+5, 2615, 9, 24, 663, 8815
+1, 7032, 11, 24, 407, 6994
+10, 6119, 7, 28, 1440, 4684
+3, 1028, 12, 31, 7592, 7247
+2, 6506, 14, 33, 7946, 8399
+7, 7245, 6, 36, 9796, 8196
+4, 8017, 3, 47, 1603, 2795
+8, 5359, 10, 52, 6996, 4045
 
-Total Wait: 24.672001675885596
-Start Time: Tue Apr 05 19:13:06 SGT 2016
-End Time: Tue Apr 05 19:13:06 SGT 2016
-Duration (sec): 0.398
+Greedy Total Wait: 13.789842890737198
+chosen-taxiId:3, reqId:1, taxiLoc:238, startLoc:1171, descLoc:1028, wait:0.5599395633596016
+chosen-taxiId:5, reqId:2, taxiLoc:3368, startLoc:3332, descLoc:2615, wait:-6.6643285549668
+chosen-taxiId:9, reqId:3, taxiLoc:8248, startLoc:612, descLoc:7846, wait:-3.4918963323515975
+chosen-taxiId:7, reqId:4, taxiLoc:4788, startLoc:8574, descLoc:7245, wait:-12.145815369209501
+chosen-taxiId:6, reqId:5, taxiLoc:9319, startLoc:961, descLoc:217, wait:-9.6608292899781
+chosen-taxiId:5, reqId:6, taxiLoc:2615, startLoc:663, descLoc:8815, wait:-7.911816529993302
+chosen-taxiId:1, reqId:7, taxiLoc:7032, startLoc:407, descLoc:6994, wait:-9.003546169356998
+chosen-taxiId:10, reqId:8, taxiLoc:6119, startLoc:1440, descLoc:4684, wait:-15.241317246404103
+chosen-taxiId:3, reqId:9, taxiLoc:1028, startLoc:7592, descLoc:7247, wait:-12.543579182287898
+chosen-taxiId:2, reqId:10, taxiLoc:6506, startLoc:7946, descLoc:8399, wait:-18.5146787664109
+chosen-taxiId:7, reqId:11, taxiLoc:7245, startLoc:9796, descLoc:8196, wait:-9.007643701971197
+chosen-taxiId:9, reqId:12, taxiLoc:7846, startLoc:1603, descLoc:2795, wait:-11.997191862050993
+chosen-taxiId:4, reqId:13, taxiLoc:5359, startLoc:6996, descLoc:4045, wait:-18.2126372604893
+
+ANS
+3, 238, 1, 6, 1171, 1028
+5, 3368, 2, 7, 3332, 2615
+9, 8248, 3, 16, 612, 7846
+7, 4788, 4, 18, 8574, 7245
+6, 9319, 5, 23, 961, 217
+5, 2615, 6, 24, 663, 8815
+1, 7032, 7, 24, 407, 6994
+10, 6119, 8, 28, 1440, 4684
+3, 1028, 9, 31, 7592, 7247
+2, 6506, 10, 33, 7946, 8399
+7, 7245, 11, 36, 9796, 8196
+9, 7846, 12, 47, 1603, 2795
+4, 5359, 13, 52, 6996, 4045
+
+Greedy Total Wait: 0.5599395633596016
+chosen-taxiId:5, reqId:1, taxiLoc:8815, startLoc:2536, descLoc:5359, wait:41.517995485598696
+chosen-taxiId:10, reqId:2, taxiLoc:4684, startLoc:3332, descLoc:2615, wait:37.7476318676151
+chosen-taxiId:6, reqId:3, taxiLoc:217, startLoc:612, descLoc:7846, wait:24.783140080545603
+chosen-taxiId:8, reqId:4, taxiLoc:8017, startLoc:8574, descLoc:7245, wait:31.49828459143489
+chosen-taxiId:7, reqId:5, taxiLoc:8196, startLoc:961, descLoc:217, wait:28.576396969813803
+chosen-taxiId:6, reqId:6, taxiLoc:7846, startLoc:663, descLoc:8815, wait:29.228766537996204
+chosen-taxiId:1, reqId:7, taxiLoc:6994, startLoc:407, descLoc:6994, wait:31.137043828729407
+chosen-taxiId:2, reqId:8, taxiLoc:8399, startLoc:1440, descLoc:4684, wait:25.4814451003731
+chosen-taxiId:10, reqId:9, taxiLoc:2615, startLoc:7592, descLoc:7247, wait:27.097939512035897
+chosen-taxiId:5, reqId:10, taxiLoc:5359, startLoc:7946, descLoc:8399, wait:26.960941425112292
+chosen-taxiId:2, reqId:11, taxiLoc:4684, startLoc:9796, descLoc:8196, wait:29.694481514512297
+chosen-taxiId:9, reqId:12, taxiLoc:2795, startLoc:1603, descLoc:2795, wait:10.585553508599205
+chosen-taxiId:8, reqId:13, taxiLoc:7245, startLoc:6996, descLoc:4045, wait:16.947835560093083
+
+ANS
+5, 8815, 1, 0, 2536, 5359
+10, 4684, 2, 7, 3332, 2615
+6, 217, 3, 16, 612, 7846
+8, 8017, 4, 18, 8574, 7245
+7, 8196, 5, 23, 961, 217
+6, 7846, 6, 24, 663, 8815
+1, 6994, 7, 24, 407, 6994
+2, 8399, 8, 28, 1440, 4684
+10, 2615, 9, 31, 7592, 7247
+5, 5359, 10, 33, 7946, 8399
+2, 4684, 11, 36, 9796, 8196
+9, 2795, 12, 47, 1603, 2795
+8, 7245, 13, 52, 6996, 4045
+
+Greedy Total Wait: 361.2574559824596
+chosen-taxiId:6, reqId:1, taxiLoc:8815, startLoc:2536, descLoc:5359, wait:69.9959070855483
+chosen-taxiId:9, reqId:2, taxiLoc:2795, startLoc:2187, descLoc:8017, wait:72.8291866559193
+chosen-taxiId:7, reqId:3, taxiLoc:217, startLoc:612, descLoc:7846, wait:52.45859164291301
+chosen-taxiId:4, reqId:4, taxiLoc:1028, startLoc:8574, descLoc:7245, wait:61.135435936779004
+chosen-taxiId:7, reqId:5, taxiLoc:7846, startLoc:961, descLoc:217, wait:56.741934522568314
+chosen-taxiId:8, reqId:6, taxiLoc:4045, startLoc:663, descLoc:8815, wait:59.13052053026788
+chosen-taxiId:5, reqId:7, taxiLoc:1028, startLoc:407, descLoc:6994, wait:59.52343888238359
+chosen-taxiId:2, reqId:8, taxiLoc:8196, startLoc:1440, descLoc:4684, wait:52.3454165497521
+chosen-taxiId:1, reqId:9, taxiLoc:6994, startLoc:7592, descLoc:7247, wait:56.7955330062334
+chosen-taxiId:10, reqId:10, taxiLoc:7247, startLoc:7946, descLoc:8399, wait:53.521631270762086
+chosen-taxiId:6, reqId:11, taxiLoc:5359, startLoc:9796, descLoc:8196, wait:49.80606402454729
+chosen-taxiId:7, reqId:12, taxiLoc:217, startLoc:1603, descLoc:2795, wait:48.85508903316272
+chosen-taxiId:4, reqId:13, taxiLoc:7245, startLoc:6996, descLoc:4045, wait:40.6237585405634
+
+ANS
+6, 8815, 1, 0, 2536, 5359
+9, 2795, 2, 5, 2187, 8017
+7, 217, 3, 16, 612, 7846
+4, 1028, 4, 18, 8574, 7245
+7, 7846, 5, 23, 961, 217
+8, 4045, 6, 24, 663, 8815
+5, 1028, 7, 24, 407, 6994
+2, 8196, 8, 28, 1440, 4684
+1, 6994, 9, 31, 7592, 7247
+10, 7247, 10, 33, 7946, 8399
+6, 5359, 11, 36, 9796, 8196
+7, 217, 12, 47, 1603, 2795
+4, 7245, 13, 52, 6996, 4045
+
+Greedy Total Wait: 733.7625076814003
+chosen-taxiId:6, reqId:1, taxiLoc:8196, startLoc:2536, descLoc:5359, wait:102.47607442792818
+chosen-taxiId:2, reqId:2, taxiLoc:4684, startLoc:2187, descLoc:8017, wait:93.18540987537381
+chosen-taxiId:4, reqId:3, taxiLoc:4045, startLoc:1171, descLoc:1028, wait:98.9214546262374
+chosen-taxiId:8, reqId:4, taxiLoc:8815, startLoc:8574, descLoc:7245, wait:85.25262447433619
+chosen-taxiId:3, reqId:5, taxiLoc:2615, startLoc:961, descLoc:217, wait:85.11402171778182
+chosen-taxiId:7, reqId:6, taxiLoc:2795, startLoc:663, descLoc:8815, wait:88.65937265059833
+chosen-taxiId:10, reqId:7, taxiLoc:8399, startLoc:407, descLoc:6994, wait:90.77850747930998
+chosen-taxiId:2, reqId:8, taxiLoc:8017, startLoc:1440, descLoc:4684, wait:84.1700025077597
+chosen-taxiId:5, reqId:9, taxiLoc:7846, startLoc:7592, descLoc:7247, wait:85.59863136924477
+chosen-taxiId:4, reqId:10, taxiLoc:1028, startLoc:7946, descLoc:8399, wait:87.4411469028367
+chosen-taxiId:1, reqId:11, taxiLoc:7247, startLoc:9796, descLoc:8196, wait:76.2932437820119
+chosen-taxiId:6, reqId:12, taxiLoc:5359, startLoc:1603, descLoc:2795, wait:76.34031945527158
+chosen-taxiId:8, reqId:13, taxiLoc:7245, startLoc:6996, descLoc:4045, wait:62.006049082822884
+
+ANS
+6, 8196, 1, 0, 2536, 5359
+2, 4684, 2, 5, 2187, 8017
+4, 4045, 3, 6, 1171, 1028
+8, 8815, 4, 18, 8574, 7245
+3, 2615, 5, 23, 961, 217
+7, 2795, 6, 24, 663, 8815
+10, 8399, 7, 24, 407, 6994
+2, 8017, 8, 28, 1440, 4684
+5, 7846, 9, 31, 7592, 7247
+4, 1028, 10, 33, 7946, 8399
+1, 7247, 11, 36, 9796, 8196
+6, 5359, 12, 47, 1603, 2795
+8, 7245, 13, 52, 6996, 4045
+
+Greedy Total Wait: 1116.2368583515133
+chosen-taxiId:8, reqId:1, taxiLoc:4045, startLoc:2536, descLoc:5359, wait:124.84273986545678
+chosen-taxiId:2, reqId:2, taxiLoc:4684, startLoc:2187, descLoc:8017, wait:121.1545951401456
+chosen-taxiId:3, reqId:3, taxiLoc:217, startLoc:1171, descLoc:1028, wait:121.27016044502743
+chosen-taxiId:10, reqId:4, taxiLoc:6994, startLoc:3332, descLoc:2615, wait:125.50027437560219
+chosen-taxiId:1, reqId:5, taxiLoc:8196, startLoc:961, descLoc:217, wait:109.7112806809483
+chosen-taxiId:4, reqId:6, taxiLoc:8399, startLoc:663, descLoc:8815, wait:112.3467560912794
+chosen-taxiId:3, reqId:7, taxiLoc:1028, startLoc:407, descLoc:6994, wait:115.51254562509233
+chosen-taxiId:6, reqId:8, taxiLoc:2795, startLoc:1440, descLoc:4684, wait:110.19797237048908
+chosen-taxiId:2, reqId:9, taxiLoc:8017, startLoc:7592, descLoc:7247, wait:113.6597920810512
+chosen-taxiId:5, reqId:10, taxiLoc:7247, startLoc:7946, descLoc:8399, wait:109.07186358678057
+chosen-taxiId:8, reqId:11, taxiLoc:5359, startLoc:9796, descLoc:8196, wait:104.31710130916787
+chosen-taxiId:10, reqId:12, taxiLoc:2615, startLoc:1603, descLoc:2795, wait:99.3403567389704
+chosen-taxiId:3, reqId:13, taxiLoc:6994, startLoc:6996, descLoc:4045, wait:99.57790080578692
+
+ANS
+8, 4045, 1, 0, 2536, 5359
+2, 4684, 2, 5, 2187, 8017
+3, 217, 3, 6, 1171, 1028
+10, 6994, 4, 7, 3332, 2615
+1, 8196, 5, 23, 961, 217
+4, 8399, 6, 24, 663, 8815
+3, 1028, 7, 24, 407, 6994
+6, 2795, 8, 28, 1440, 4684
+2, 8017, 9, 31, 7592, 7247
+5, 7247, 10, 33, 7946, 8399
+8, 5359, 11, 36, 9796, 8196
+10, 2615, 12, 47, 1603, 2795
+3, 6994, 13, 52, 6996, 4045
+
+Greedy Total Wait: 1466.5033391157979
+chosen-taxiId:4, reqId:1, taxiLoc:8815, startLoc:2536, descLoc:5359, wait:155.38884973212544
+chosen-taxiId:1, reqId:2, taxiLoc:217, startLoc:2187, descLoc:8017, wait:155.6338944607267
+chosen-taxiId:8, reqId:3, taxiLoc:8196, startLoc:1171, descLoc:1028, wait:152.19129470436226
+chosen-taxiId:10, reqId:4, taxiLoc:2795, startLoc:3332, descLoc:2615, wait:159.2619896183351
+chosen-taxiId:7, reqId:5, taxiLoc:217, startLoc:612, descLoc:7846, wait:155.36917604050691
+chosen-taxiId:3, reqId:6, taxiLoc:4045, startLoc:663, descLoc:8815, wait:146.45970562969802
+chosen-taxiId:5, reqId:7, taxiLoc:8399, startLoc:407, descLoc:6994, wait:146.32873979532846
+chosen-taxiId:2, reqId:8, taxiLoc:7247, startLoc:1440, descLoc:4684, wait:146.10317719444598
+chosen-taxiId:8, reqId:9, taxiLoc:1028, startLoc:7592, descLoc:7247, wait:143.35735631217577
+chosen-taxiId:9, reqId:10, taxiLoc:7245, startLoc:7946, descLoc:8399, wait:140.3734391996997
+chosen-taxiId:6, reqId:11, taxiLoc:7245, startLoc:9796, descLoc:8196, wait:127.79804358027539
+chosen-taxiId:4, reqId:12, taxiLoc:5359, startLoc:1603, descLoc:2795, wait:128.39324129508694
+chosen-taxiId:6, reqId:13, taxiLoc:8196, startLoc:6996, descLoc:4045, wait:132.9042149789777
+
+ANS
+4, 8815, 1, 0, 2536, 5359
+1, 217, 2, 5, 2187, 8017
+8, 8196, 3, 6, 1171, 1028
+10, 2795, 4, 7, 3332, 2615
+7, 217, 5, 16, 612, 7846
+3, 4045, 6, 24, 663, 8815
+5, 8399, 7, 24, 407, 6994
+2, 7247, 8, 28, 1440, 4684
+8, 1028, 9, 31, 7592, 7247
+9, 7245, 10, 33, 7946, 8399
+6, 7245, 11, 36, 9796, 8196
+4, 5359, 12, 47, 1603, 2795
+6, 8196, 13, 52, 6996, 4045
+
+Greedy Total Wait: 1889.5631225417444
+chosen-taxiId:7, reqId:1, taxiLoc:7846, startLoc:2536, descLoc:5359, wait:185.4677976468223
+chosen-taxiId:1, reqId:2, taxiLoc:8017, startLoc:2187, descLoc:8017, wait:187.21365200344752
+chosen-taxiId:10, reqId:3, taxiLoc:2615, startLoc:1171, descLoc:1028, wait:185.99558207428439
+chosen-taxiId:3, reqId:4, taxiLoc:8815, startLoc:3332, descLoc:2615, wait:185.12531551043793
+chosen-taxiId:4, reqId:5, taxiLoc:2795, startLoc:612, descLoc:7846, wait:180.27751589161704
+chosen-taxiId:8, reqId:6, taxiLoc:7247, startLoc:8574, descLoc:7245, wait:178.01339633065916
+chosen-taxiId:9, reqId:7, taxiLoc:8399, startLoc:407, descLoc:6994, wait:173.5843620600723
+chosen-taxiId:7, reqId:8, taxiLoc:5359, startLoc:1440, descLoc:4684, wait:178.0817381434041
+chosen-taxiId:5, reqId:9, taxiLoc:217, startLoc:7592, descLoc:7247, wait:173.31705375224576
+chosen-taxiId:2, reqId:10, taxiLoc:4684, startLoc:7946, descLoc:8399, wait:170.84242396932157
+chosen-taxiId:9, reqId:11, taxiLoc:6994, startLoc:9796, descLoc:8196, wait:172.862413715195
+chosen-taxiId:3, reqId:12, taxiLoc:2615, startLoc:1603, descLoc:2795, wait:160.32810168559894
+chosen-taxiId:5, reqId:13, taxiLoc:7247, startLoc:6996, descLoc:4045, wait:162.67547548008835
+
+ANS
+7, 7846, 1, 0, 2536, 5359
+1, 8017, 2, 5, 2187, 8017
+10, 2615, 3, 6, 1171, 1028
+3, 8815, 4, 7, 3332, 2615
+4, 2795, 5, 16, 612, 7846
+8, 7247, 6, 18, 8574, 7245
+9, 8399, 7, 24, 407, 6994
+7, 5359, 8, 28, 1440, 4684
+5, 217, 9, 31, 7592, 7247
+2, 4684, 10, 33, 7946, 8399
+9, 6994, 11, 36, 9796, 8196
+3, 2615, 12, 47, 1603, 2795
+5, 7247, 13, 52, 6996, 4045
+
+Greedy Total Wait: 2293.784828263194
+chosen-taxiId:10, reqId:1, taxiLoc:1028, startLoc:2536, descLoc:5359, wait:215.13920120894758
+chosen-taxiId:4, reqId:2, taxiLoc:7846, startLoc:2187, descLoc:8017, wait:212.28582649375136
+chosen-taxiId:2, reqId:3, taxiLoc:8399, startLoc:1171, descLoc:1028, wait:215.62913302969088
+chosen-taxiId:7, reqId:4, taxiLoc:4684, startLoc:3332, descLoc:2615, wait:214.02997551821338
+chosen-taxiId:3, reqId:5, taxiLoc:2795, startLoc:612, descLoc:7846, wait:206.28632662709205
+chosen-taxiId:8, reqId:6, taxiLoc:7245, startLoc:8574, descLoc:7245, wait:206.43432465046865
+chosen-taxiId:9, reqId:7, taxiLoc:8196, startLoc:961, descLoc:217, wait:200.3841476926699
+chosen-taxiId:7, reqId:8, taxiLoc:2615, startLoc:1440, descLoc:4684, wait:201.85967885411446
+chosen-taxiId:2, reqId:9, taxiLoc:1028, startLoc:7592, descLoc:7247, wait:204.35729601640378
+chosen-taxiId:3, reqId:10, taxiLoc:7846, startLoc:7946, descLoc:8399, wait:202.19654325452015
+chosen-taxiId:10, reqId:11, taxiLoc:5359, startLoc:9796, descLoc:8196, wait:198.20267579810067
+chosen-taxiId:4, reqId:12, taxiLoc:8017, startLoc:1603, descLoc:2795, wait:185.36255760730276
+chosen-taxiId:8, reqId:13, taxiLoc:7245, startLoc:6996, descLoc:4045, wait:186.94275746008424
+
+ANS
+10, 1028, 1, 0, 2536, 5359
+4, 7846, 2, 5, 2187, 8017
+2, 8399, 3, 6, 1171, 1028
+7, 4684, 4, 7, 3332, 2615
+3, 2795, 5, 16, 612, 7846
+8, 7245, 6, 18, 8574, 7245
+9, 8196, 7, 23, 961, 217
+7, 2615, 8, 28, 1440, 4684
+2, 1028, 9, 31, 7592, 7247
+3, 7846, 10, 33, 7946, 8399
+10, 5359, 11, 36, 9796, 8196
+4, 8017, 12, 47, 1603, 2795
+8, 7245, 13, 52, 6996, 4045
+
+Greedy Total Wait: 2649.1104442113597
+chosen-taxiId:6, reqId:1, taxiLoc:8815, startLoc:2536, descLoc:5359, wait:240.369457685517
+chosen-taxiId:7, reqId:2, taxiLoc:4684, startLoc:2187, descLoc:8017, wait:239.10640391373346
+chosen-taxiId:9, reqId:3, taxiLoc:217, startLoc:1171, descLoc:1028, wait:237.1055256656486
+chosen-taxiId:3, reqId:4, taxiLoc:8399, startLoc:3332, descLoc:2615, wait:243.45271537207805
+chosen-taxiId:4, reqId:5, taxiLoc:2795, startLoc:612, descLoc:7846, wait:229.72171110710747
+chosen-taxiId:8, reqId:6, taxiLoc:4045, startLoc:8574, descLoc:7245, wait:231.84292903419083
+chosen-taxiId:9, reqId:7, taxiLoc:1028, startLoc:961, descLoc:217, wait:228.7916326136682
+chosen-taxiId:9, reqId:8, taxiLoc:217, startLoc:663, descLoc:8815, wait:233.7714124662261
+chosen-taxiId:4, reqId:9, taxiLoc:7846, startLoc:7592, descLoc:7247, wait:230.77797659051248
+chosen-taxiId:6, reqId:10, taxiLoc:5359, startLoc:7946, descLoc:8399, wait:225.8124036250306
+chosen-taxiId:5, reqId:11, taxiLoc:6994, startLoc:9796, descLoc:8196, wait:212.59901398337445
+chosen-taxiId:7, reqId:12, taxiLoc:8017, startLoc:1603, descLoc:2795, wait:210.22616175708146
+chosen-taxiId:2, reqId:13, taxiLoc:7247, startLoc:6996, descLoc:4045, wait:194.16279521874938
+
+ANS
+6, 8815, 1, 0, 2536, 5359
+7, 4684, 2, 5, 2187, 8017
+9, 217, 3, 6, 1171, 1028
+3, 8399, 4, 7, 3332, 2615
+4, 2795, 5, 16, 612, 7846
+8, 4045, 6, 18, 8574, 7245
+9, 1028, 7, 23, 961, 217
+9, 217, 8, 24, 663, 8815
+4, 7846, 9, 31, 7592, 7247
+6, 5359, 10, 33, 7946, 8399
+5, 6994, 11, 36, 9796, 8196
+7, 8017, 12, 47, 1603, 2795
+2, 7247, 13, 52, 6996, 4045
+
+Greedy Total Wait: 2957.7401390329187
+chosen-taxiId:2, reqId:1, taxiLoc:4045, startLoc:2536, descLoc:5359, wait:260.0614406954394
+chosen-taxiId:5, reqId:2, taxiLoc:8196, startLoc:2187, descLoc:8017, wait:262.06384383651096
+chosen-taxiId:7, reqId:3, taxiLoc:2795, startLoc:1171, descLoc:1028, wait:264.8427573775756
+chosen-taxiId:8, reqId:4, taxiLoc:7245, startLoc:3332, descLoc:2615, wait:260.94633902052004
+chosen-taxiId:9, reqId:5, taxiLoc:8815, startLoc:612, descLoc:7846, wait:259.92203707934806
+chosen-taxiId:1, reqId:6, taxiLoc:4684, startLoc:8574, descLoc:7245, wait:252.38963824575285
+chosen-taxiId:6, reqId:7, taxiLoc:8399, startLoc:961, descLoc:217, wait:255.4901927853939
+chosen-taxiId:2, reqId:8, taxiLoc:5359, startLoc:663, descLoc:8815, wait:259.73090323500355
+chosen-taxiId:7, reqId:9, taxiLoc:1028, startLoc:407, descLoc:6994, wait:261.7047985021205
+chosen-taxiId:8, reqId:10, taxiLoc:2615, startLoc:7946, descLoc:8399, wait:252.70224929580723
+chosen-taxiId:4, reqId:11, taxiLoc:7247, startLoc:9796, descLoc:8196, wait:240.16868717608457
+chosen-taxiId:5, reqId:12, taxiLoc:8017, startLoc:1603, descLoc:2795, wait:240.15895202035895
+chosen-taxiId:1, reqId:13, taxiLoc:7245, startLoc:6996, descLoc:4045, wait:225.71647632703576
+
+ANS
+2, 4045, 1, 0, 2536, 5359
+5, 8196, 2, 5, 2187, 8017
+7, 2795, 3, 6, 1171, 1028
+8, 7245, 4, 7, 3332, 2615
+9, 8815, 5, 16, 612, 7846
+1, 4684, 6, 18, 8574, 7245
+6, 8399, 7, 23, 961, 217
+2, 5359, 8, 24, 663, 8815
+7, 1028, 9, 24, 407, 6994
+8, 2615, 10, 33, 7946, 8399
+4, 7247, 11, 36, 9796, 8196
+5, 8017, 12, 47, 1603, 2795
+1, 7245, 13, 52, 6996, 4045
+
+Greedy Total Wait: 3295.898315596951
+chosen-taxiId:1, reqId:1, taxiLoc:4045, startLoc:2536, descLoc:5359, wait:288.55316710966963
+chosen-taxiId:4, reqId:2, taxiLoc:8196, startLoc:2187, descLoc:8017, wait:295.52981995068257
+chosen-taxiId:9, reqId:3, taxiLoc:7846, startLoc:1171, descLoc:1028, wait:288.7265042409052
+chosen-taxiId:7, reqId:4, taxiLoc:6994, startLoc:3332, descLoc:2615, wait:292.19125492785116
+chosen-taxiId:6, reqId:5, taxiLoc:217, startLoc:612, descLoc:7846, wait:276.9344888373925
+chosen-taxiId:3, reqId:6, taxiLoc:8399, startLoc:8574, descLoc:7245, wait:285.4335618632526
+chosen-taxiId:9, reqId:7, taxiLoc:1028, startLoc:961, descLoc:217, wait:278.36012664189826
+chosen-taxiId:5, reqId:8, taxiLoc:2795, startLoc:663, descLoc:8815, wait:274.40324164194266
+chosen-taxiId:8, reqId:9, taxiLoc:8399, startLoc:407, descLoc:6994, wait:279.0424613217985
+chosen-taxiId:6, reqId:10, taxiLoc:7846, startLoc:1440, descLoc:4684, wait:275.5935428366706
+chosen-taxiId:1, reqId:11, taxiLoc:5359, startLoc:9796, descLoc:8196, wait:268.0275285533807
+chosen-taxiId:9, reqId:12, taxiLoc:217, startLoc:1603, descLoc:2795, wait:265.03686192097746
+chosen-taxiId:3, reqId:13, taxiLoc:7245, startLoc:6996, descLoc:4045, wait:264.28838072820116
+
+ANS
+1, 4045, 1, 0, 2536, 5359
+4, 8196, 2, 5, 2187, 8017
+9, 7846, 3, 6, 1171, 1028
+7, 6994, 4, 7, 3332, 2615
+6, 217, 5, 16, 612, 7846
+3, 8399, 6, 18, 8574, 7245
+9, 1028, 7, 23, 961, 217
+5, 2795, 8, 24, 663, 8815
+8, 8399, 9, 24, 407, 6994
+6, 7846, 10, 28, 1440, 4684
+1, 5359, 11, 36, 9796, 8196
+9, 217, 12, 47, 1603, 2795
+3, 7245, 13, 52, 6996, 4045
+
+Greedy Total Wait: 3632.1209405746226
+chosen-taxiId:5, reqId:1, taxiLoc:8815, startLoc:2536, descLoc:5359, wait:314.69922771854067
+chosen-taxiId:6, reqId:2, taxiLoc:4684, startLoc:2187, descLoc:8017, wait:314.2145983031621
+chosen-taxiId:1, reqId:3, taxiLoc:8196, startLoc:1171, descLoc:1028, wait:315.9017219485751
+chosen-taxiId:8, reqId:4, taxiLoc:6994, startLoc:3332, descLoc:2615, wait:313.7642282180907
+chosen-taxiId:4, reqId:5, taxiLoc:8017, startLoc:612, descLoc:7846, wait:311.60523592814195
+chosen-taxiId:3, reqId:6, taxiLoc:4045, startLoc:8574, descLoc:7245, wait:309.18855230230776
+chosen-taxiId:9, reqId:7, taxiLoc:2795, startLoc:961, descLoc:217, wait:308.961619570282
+chosen-taxiId:6, reqId:8, taxiLoc:8017, startLoc:663, descLoc:8815, wait:313.1998000619005
+chosen-taxiId:10, reqId:9, taxiLoc:7247, startLoc:407, descLoc:6994, wait:312.09575284192357
+chosen-taxiId:7, reqId:10, taxiLoc:8399, startLoc:1440, descLoc:4684, wait:305.44528067573566
+chosen-taxiId:5, reqId:11, taxiLoc:5359, startLoc:7592, descLoc:7247, wait:306.9997277347265
+chosen-taxiId:8, reqId:12, taxiLoc:2615, startLoc:1603, descLoc:2795, wait:287.6043105814589
+chosen-taxiId:3, reqId:13, taxiLoc:7245, startLoc:6996, descLoc:4045, wait:286.08872387641435
+
+ANS
+5, 8815, 1, 0, 2536, 5359
+6, 4684, 2, 5, 2187, 8017
+1, 8196, 3, 6, 1171, 1028
+8, 6994, 4, 7, 3332, 2615
+4, 8017, 5, 16, 612, 7846
+3, 4045, 6, 18, 8574, 7245
+9, 2795, 7, 23, 961, 217
+6, 8017, 8, 24, 663, 8815
+10, 7247, 9, 24, 407, 6994
+7, 8399, 10, 28, 1440, 4684
+5, 5359, 11, 31, 7592, 7247
+8, 2615, 12, 47, 1603, 2795
+3, 7245, 13, 52, 6996, 4045
+
+Greedy Total Wait: 3999.76877976126
+chosen-taxiId:1, reqId:1, taxiLoc:1028, startLoc:2536, descLoc:5359, wait:344.75004297617494
+chosen-taxiId:3, reqId:2, taxiLoc:4045, startLoc:2187, descLoc:8017, wait:350.93822122350485
+chosen-taxiId:8, reqId:3, taxiLoc:2795, startLoc:1171, descLoc:1028, wait:343.8199776436414
+chosen-taxiId:6, reqId:4, taxiLoc:8815, startLoc:3332, descLoc:2615, wait:348.66895871076343
+chosen-taxiId:9, reqId:5, taxiLoc:217, startLoc:612, descLoc:7846, wait:331.0565655886474
+chosen-taxiId:1, reqId:6, taxiLoc:5359, startLoc:8574, descLoc:7245, wait:345.7034716650085
+chosen-taxiId:9, reqId:7, taxiLoc:7846, startLoc:961, descLoc:217, wait:335.33990846830267
+chosen-taxiId:8, reqId:8, taxiLoc:1028, startLoc:663, descLoc:8815, wait:342.6500860472332
+chosen-taxiId:9, reqId:9, taxiLoc:217, startLoc:407, descLoc:6994, wait:346.05038874457495
+chosen-taxiId:7, reqId:10, taxiLoc:2795, startLoc:1440, descLoc:4684, wait:337.1391721788387
+chosen-taxiId:10, reqId:11, taxiLoc:6994, startLoc:7592, descLoc:7247, wait:343.67889926200047
+chosen-taxiId:5, reqId:12, taxiLoc:7247, startLoc:7946, descLoc:8399, wait:338.5970775186117
+chosen-taxiId:1, reqId:13, taxiLoc:7245, startLoc:6996, descLoc:4045, wait:321.0451020603594
+
+ANS
+1, 1028, 1, 0, 2536, 5359
+3, 4045, 2, 5, 2187, 8017
+8, 2795, 3, 6, 1171, 1028
+6, 8815, 4, 7, 3332, 2615
+9, 217, 5, 16, 612, 7846
+1, 5359, 6, 18, 8574, 7245
+9, 7846, 7, 23, 961, 217
+8, 1028, 8, 24, 663, 8815
+9, 217, 9, 24, 407, 6994
+7, 2795, 10, 28, 1440, 4684
+10, 6994, 11, 31, 7592, 7247
+5, 7247, 12, 33, 7946, 8399
+1, 7245, 13, 52, 6996, 4045
+
+Greedy Total Wait: 4429.437872087662
+chosen-taxiId:2, reqId:1, taxiLoc:8196, startLoc:2536, descLoc:5359, wait:377.4129434881828
+chosen-taxiId:7, reqId:2, taxiLoc:4684, startLoc:2187, descLoc:8017, wait:373.16388782945694
+chosen-taxiId:6, reqId:3, taxiLoc:2615, startLoc:1171, descLoc:1028, wait:370.683704462509
+chosen-taxiId:9, reqId:4, taxiLoc:6994, startLoc:3332, descLoc:2615, wait:376.44871942778457
+chosen-taxiId:3, reqId:5, taxiLoc:8017, startLoc:612, descLoc:7846, wait:366.07481055252106
+chosen-taxiId:1, reqId:6, taxiLoc:4045, startLoc:8574, descLoc:7245, wait:365.945273634466
+chosen-taxiId:6, reqId:7, taxiLoc:1028, startLoc:961, descLoc:217, wait:366.2114767640093
+chosen-taxiId:6, reqId:8, taxiLoc:217, startLoc:663, descLoc:8815, wait:371.1912566165672
+chosen-taxiId:7, reqId:9, taxiLoc:8017, startLoc:407, descLoc:6994, wait:373.53820855890854
+chosen-taxiId:8, reqId:10, taxiLoc:2795, startLoc:1440, descLoc:4684, wait:364.5258877894578
+chosen-taxiId:3, reqId:11, taxiLoc:7846, startLoc:7592, descLoc:7247, wait:368.17980434095455
+chosen-taxiId:5, reqId:12, taxiLoc:8399, startLoc:7946, descLoc:8399, wait:362.37370883181853
+chosen-taxiId:2, reqId:13, taxiLoc:5359, startLoc:9796, descLoc:8196, wait:358.0829538915637
+
+ANS
+2, 8196, 1, 0, 2536, 5359
+7, 4684, 2, 5, 2187, 8017
+6, 2615, 3, 6, 1171, 1028
+9, 6994, 4, 7, 3332, 2615
+3, 8017, 5, 16, 612, 7846
+1, 4045, 6, 18, 8574, 7245
+6, 1028, 7, 23, 961, 217
+6, 217, 8, 24, 663, 8815
+7, 8017, 9, 24, 407, 6994
+8, 2795, 10, 28, 1440, 4684
+3, 7846, 11, 31, 7592, 7247
+5, 8399, 12, 33, 7946, 8399
+2, 5359, 13, 36, 9796, 8196
+
+Greedy Total Wait: 4793.8326361882
+Start Time: Thu Apr 07 11:27:13 SGT 2016
+End Time: Thu Apr 07 11:27:13 SGT 2016
+Duration (sec): 0.765
