@@ -1,0 +1,12 @@
+Assignment...
+taxi:2, taxiLoc:867, reqId:3, reqTime:1, startLoc:7953, descLoc:7832
+taxi:5, taxiLoc:8029, reqId:1, reqTime:3, startLoc:1634, descLoc:3651
+taxi:1, taxiLoc:3395, reqId:5, reqTime:4, startLoc:3260, descLoc:7035
+taxi:1, taxiLoc:7035, reqId:6, reqTime:14, startLoc:7459, descLoc:8312
+taxi:3, taxiLoc:477, reqId:4, reqTime:25, startLoc:5177, descLoc:1989
+taxi:5, taxiLoc:3651, reqId:2, reqTime:47, startLoc:6977, descLoc:745
+
+Total Wait: 11.799998651145298
+Start Time: Fri Apr 08 00:05:46 SGT 2016
+End Time: Fri Apr 08 00:05:46 SGT 2016
+Duration (sec): 0.221

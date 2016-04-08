@@ -7,6 +7,6 @@ Grand total duration (Obj value + demands): 98.8867393236202
 0 0 1 0 0 
 0 0 0 0 1 
 0 1 0 0 0 
-Start Time: Wed Apr 06 01:00:15 SGT 2016
-End Time: Wed Apr 06 01:00:16 SGT 2016
-Duration (sec): 0.572
+Start Time: Thu Apr 07 23:44:17 SGT 2016
+End Time: Thu Apr 07 23:44:19 SGT 2016
+Duration (sec): 1.722

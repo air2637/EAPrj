@@ -7,8 +7,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import helper.InputReaderPartB;
 import ilog.concert.IloException;
@@ -29,21 +31,21 @@ public class TesterB {
 	// final static int[] NUM = new int[] { 100, 120 };
 
 	static int GREEDY_CHOICE = 1; // ********* select greedy method
-	static double THRESHOLD = 0;
-	static double totalWait;
+	final static double THRESHOLD = 0;
 
 	static HashMap<Integer, Dijkstra> dijkstraMap = new HashMap<Integer, Dijkstra>();
 
 	public static void main(String[] args) {
 
+		boolean compile = false;
 		if (args.length != 0) {
+			compile = true;
 			NUM[0] = Integer.parseInt(args[0]);
 			NUM[1] = Integer.parseInt(args[1]);
 			GREEDY_CHOICE = Integer.parseInt(args[2]);
 		}
 
 		Date startTime = new Date();
-		totalWait = 0.0;
 
 		try {
 			summaryWriter = new PrintWriter(
@@ -60,7 +62,7 @@ public class TesterB {
 											+ GREEDY_CHOICE + "-" + NUM[0] + "_" + NUM[1] + ".csv",
 									false)));
 
-			if (args.length != 0) {
+			if (compile) {
 				overallWriter = new PrintWriter(
 						new BufferedWriter(new FileWriter("part b/overall_summary.txt", true)));
 			}
@@ -74,24 +76,37 @@ public class TesterB {
 		demands = partB.getDemands();
 		taxiLocations = partB.getTaxiLocations();
 
+		List<Request> requests = new ArrayList<Request>();
+		for (int i = 0; i < demands.size(); i++) {
+			Integer[] j = demands.get(i);
+			requests.add(new Request(i + 1, j[0], j[1], j[2]));
+		}
+		Collections.sort(requests, new Comparator<Request>() {
+			@Override
+			public int compare(Request o1, Request o2) {
+				return o1.requestTime - o2.requestTime;
+			}
+		});
+
+		Map<Integer, Double[]> taxisAvailList = new TreeMap<Integer, Double[]>();
+		for (int i = 0; i < taxiLocations.size(); i++) {
+			taxisAvailList.put(i + 1, new Double[] { (double) taxiLocations.get(i), 0.0 });
+		}
+
 		createDijkstraMap();
 
-		ArrayList<int[]> assignment = runGreedy(demands, taxiLocations, null);
+		List<Assignment> assignment = runGreedy(new ArrayList<Request>(requests),
+				new HashMap<Integer, Double[]>(taxisAvailList));
 		// ArrayList<int[]> assignment = runModel();
 
-		// nearestTaxiId, nearestTaxiLoc, requestId, requestTime, startLoc, descLoc
-		// for (int i = 0; i < assignment.size(); i++) {
-		// int[] a = assignment.get(i);
-		// System.out.println("requestTime:" + a[3] + ", taxi:" + a[0] + ", req:" + a[2]);
-		// }
+		assignment = localSwap(new ArrayList<Request>(requests), assignment,
+				new HashMap<Integer, Double[]>(taxisAvailList));
 
-		// assignment = localOptimization(assignment);
+		double totalWait = calculateTotalWait(assignment);
 
-		calculateWait(assignment);
+		printFinalCSV(assignment);
 
-		// printFinalCSV(assignment);
-
-		if (args.length != 0) {
+		if (compile) {
 			overallWriter.println("Greedy:" + GREEDY_CHOICE + ", Size:" + NUM[0] + "-" + NUM[1]
 					+ ", Wait: " + totalWait);
 			overallWriter.flush();
@@ -101,6 +116,12 @@ public class TesterB {
 		Date endTime = new Date();
 		System.out.println("Run complete");
 
+		print("Assignment...");
+		for (Assignment a : assignment) {
+			print(a.toString());
+		}
+		print("");
+		print("Total Wait: " + totalWait);
 		print("Start Time: " + startTime);
 		print("End Time: " + endTime);
 		print("Duration (sec): " + ((endTime.getTime() - startTime.getTime()) / 1000.0));
@@ -111,144 +132,7 @@ public class TesterB {
 		summaryWriter.close();
 	}
 
-	private static ArrayList<int[]> localOptimization(ArrayList<int[]> assignment) {
-		// final double DIFFERENCE = 3; // set tolerance between requestTime
-
-		System.out.println("local optimization");
-
-		HashMap<Integer, Double[]> taxiAvail = new HashMap<Integer, Double[]>();
-		for (int i = 0; i < taxiLocations.size(); i++) {
-			taxiAvail.put(i + 1, new Double[] { (double) taxiLocations.get(i), 0.0 });
-		}
-
-		ArrayList<int[]> bestAssignment = assignment;
-		double shortestWait = calculateWait(assignment);
-
-		for (int num = 0; num < assignment.size() - 1; num++) {
-			ArrayList<int[]> newAssignment = new ArrayList<int[]>();
-
-			System.out.println("num:" + num);
-			// 0-nearestTaxiId, 1-nearestTaxiLoc, 2-requestId, 3-requestTime, 4-startLoc, 5-descLoc
-			int[] a = assignment.get(num);
-			int[] b = assignment.get(num + 1);
-
-			int taxiIdA = a[0];
-			int taxiIdB = b[0];
-			if (taxiIdA != taxiIdB) {
-				int[] newA = new int[] { a[0], a[1], b[2], b[3], b[4], b[5] };
-				int[] newB = new int[] { b[0], b[1], a[2], a[3], a[4], a[5] };
-				newAssignment.add(newA);
-				newAssignment.add(newB);
-
-				double taxiAAvail = taxiAvail.get(newA[0])[1];
-				System.out.println("problem:" + (newA[0]));
-				System.out.println("problem:" + (newB[0]));
-				double taxiBAvail = taxiAvail.get(newB[0])[1];
-				Dijkstra d1 = dijkstraMap.get(newA[4]);
-				Dijkstra d2 = dijkstraMap.get(newB[4]);
-
-				double travelTimeA = d1.getShortestDistanceTo(newA[1]);
-				double journeyTimeA = d1.getShortestDistanceTo(newA[5]);
-				double setOffTimeA = newA[3] - travelTimeA;
-				double waitTimeA = taxiAAvail - setOffTimeA;
-
-				double travelTimeB = d2.getShortestDistanceTo(newB[1]);
-				double journeyTimeB = d2.getShortestDistanceTo(newB[5]);
-				double setOffTimeB = newB[3] - travelTimeB;
-				double waitTimeB = taxiBAvail - setOffTimeB;
-
-				if (waitTimeA < 0)
-					waitTimeA = 0;
-				if (waitTimeB < 0)
-					waitTimeB = 0;
-
-				double taxiANextAvail = waitTimeA + journeyTimeA + newA[3];
-				double taxiBNextAvail = waitTimeB + journeyTimeB + newB[3];
-
-				taxiAvail.put(taxiIdA, new Double[] { (double) newA[5], taxiANextAvail });
-				taxiAvail.put(taxiIdB, new Double[] { (double) newB[5], taxiBNextAvail });
-
-			}
-
-			System.out.println("print taxi avail");
-			for (Map.Entry<Integer, Double[]> doubles : taxiAvail.entrySet()) {
-				System.out.println(doubles.getKey() + " " + doubles.getValue()[0] + " "
-						+ doubles.getValue()[1]);
-			}
-
-			ArrayList<Integer[]> newDemands = new ArrayList<Integer[]>(demands);
-			Collections.sort(newDemands, new Comparator<Integer[]>() { // sort by requesttime
-				@Override
-				public int compare(Integer[] o1, Integer[] o2) {
-					return o1[2].compareTo(o2[2]);
-				}
-			});
-			System.out.println("newdemands size: " + newDemands.size());
-			newDemands.remove(num);
-			newDemands.remove(num);
-
-			System.out.println("new demands");
-			for (Integer[] integers : newDemands) {
-				System.out.println(integers[0] + " " + integers[1] + " " + integers[2]);
-			}
-			System.out.println("taxiavail");
-			for (Map.Entry<Integer, Double[]> e : taxiAvail.entrySet()) {
-				System.out.println(e.getKey() + " " + e.getValue()[0] + " " + e.getValue()[1]);
-			}
-
-			// 0-nearestTaxiId, 1-nearestTaxiLoc, 2-requestId, 3-requestTime, 4-startLoc, 5-descLoc
-			newAssignment.addAll(runGreedy(newDemands, null, taxiAvail));
-			for (int[] i : newAssignment) {
-				System.out.println(
-						i[0] + " " + i[1] + " " + i[2] + " " + i[3] + " " + i[4] + " " + i[5]);
-			}
-
-			double newAssignmentWait = calculateWait(newAssignment);
-			if (newAssignmentWait < shortestWait) {
-				shortestWait = newAssignmentWait;
-				bestAssignment = newAssignment;
-			}
-		}
-
-		return bestAssignment;
-
-	}
-
-	private static double calculateWait(ArrayList<int[]> assignment) {
-		double totalWait = 0.0;
-
-		Map<Integer, Double> taxisAvail = new HashMap<Integer, Double>();
-		for (int i = 0; i < taxiLocations.size(); i++) {
-			taxisAvail.put(i + 1, 0.0);
-		}
-
-		// 0-nearestTaxiId, 1-nearestTaxiLoc, 2-requestId, 3-requestTime, 4-startLoc, 5-descLoc
-		for (int[] i : assignment) {
-			int taxiId = i[0];
-			int taxiLoc = i[1];
-			int requestId = i[2];
-			int requestTime = i[3];
-			int startLoc = i[4];
-			int descLoc = i[5];
-
-			Dijkstra dijkstra = dijkstraMap.get(startLoc);
-			double taxiAvailTime = taxisAvail.get(taxiId);
-			double travelTime = dijkstra.getShortestDistanceTo(taxiLoc);
-
-			double setOffTime = requestTime - travelTime;
-			double waitTime = taxiAvailTime - setOffTime;
-			if (waitTime < 0)
-				waitTime = 0;
-
-			totalWait += waitTime;
-
-		}
-
-		System.out.println("Calculate wait: " + totalWait);
-		return totalWait;
-	}
-
-	private static ArrayList<int[]> runModel() {
+	private static List<int[]> runModel() {
 
 		ArrayList<int[]> assignment = new ArrayList<int[]>();
 
@@ -281,12 +165,17 @@ public class TesterB {
 			// Setting Yik
 			for (int i = 0; i < demands.size(); i++) {
 				int startLoc = demands.get(i)[0];
+				int descLoc = demands.get(i)[1];
 				int requestTime = demands.get(i)[2];
+
 				Dijkstra dijkstra = dijkstraMap.get(startLoc);
 
 				for (int k = 0; k < taxiLocations.size(); k++) {
 					int taxiLoc = taxiLocations.get(k);
+
 					double travelTime = dijkstra.getShortestDistanceTo(taxiLoc);
+					double setOffTime = requestTime - travelTime;
+					// double waitTime = y[i][k]*
 
 					double waitTime = travelTime - requestTime;
 					if (waitTime < 0) {
@@ -353,169 +242,190 @@ public class TesterB {
 		return assignment;
 	}
 
-	private static ArrayList<int[]> runGreedy(ArrayList<Integer[]> demands,
-			ArrayList<Integer> taxiLocations, HashMap<Integer, Double[]> taxiAvail) {
+	private static List<Assignment> runGreedy(List<Request> requests,
+			Map<Integer, Double[]> taxisAvailList) {
 
-		totalWait = 0.0;
+		ArrayList<Assignment> assignment = new ArrayList<Assignment>();
 
-		// Set customer to taxi [taxi id, taxi loc, request id, request loc]
-		ArrayList<int[]> assignment = new ArrayList<int[]>();
-
-		// Set taxi available list [ taxi id, taxi location, time available]
-		if (taxiAvail == null) {
-			taxiAvail = new HashMap<Integer, Double[]>();
-			for (int i = 0; i < taxiLocations.size(); i++) {
-				taxiAvail.put(i + 1, new Double[] { (double) taxiLocations.get(i), 0.0 });
-			}
-		}
-
-		// Set customer request time [request id, request time, start loc, destination loc]
-		List<Integer[]> requests = new ArrayList<Integer[]>();
-		for (int i = 0; i < demands.size(); i++) {
-			Integer[] j = demands.get(i);
-			requests.add(new Integer[] { i + 1, j[2], j[0], j[1] });
-		}
-		// sort by request time
-		Collections.sort(requests, new Comparator<Integer[]>() {
-			@Override
-			public int compare(Integer[] o1, Integer[] o2) {
-				return o1[1].compareTo(o2[1]);
-			}
-		});
-
-		// ****** MODEL START ******
 		while (!requests.isEmpty()) {
-			Integer[] r = requests.remove(0);
-			int requestId = r[0];
-			int requestTime = r[1];
-			int startLoc = r[2];
-			int descLoc = r[3];
-			// print("request-id:" + requestId + ", t:" + requestTime + ", ogn:" + startLoc + ",
-			// des:"
-			// + descLoc);
+			Request r = requests.remove(0);
+			Dijkstra dijkstra = dijkstraMap.get(r.startLoc);
 
-			Dijkstra dijkstra = dijkstraMap.get(startLoc);
+			boolean hasTravelled = false;
+			double shortestWait = 0;
+			int shortestTaxiLoc = 0;
+			int shortestTaxiId = 0;
 
-			double shortestWait = -1;
-			int nearestTaxiLoc = -1;
-			int nearestTaxiId = -1;
-			boolean traversed = false;
-			double chosenJourneyTime = -1; // from taxiLoc to startLoc
+			// <taxiId, [taxiLoc, taxiAvail]>
+			for (Map.Entry<Integer, Double[]> e : taxisAvailList.entrySet()) {
+				int taxiId = e.getKey();
+				int taxiLoc = e.getValue()[0].intValue();
+				double taxiAvailTime = e.getValue()[1];
 
-			for (Map.Entry<Integer, Double[]> i : taxiAvail.entrySet()) {
-				double taxiAvailTime = i.getValue()[1];
-				int taxiId = i.getKey();
-				int taxiLoc = i.getValue()[0].intValue();
+				// ********************************************************************
+				// ************************ CHOOSE GREEDY TYPE ************************
+				// ********************************************************************
 
-				// Choosing logic
+				// Time to travel from taxiLoc to startLoc
 				double travelTime = dijkstra.getShortestDistanceTo(taxiLoc);
-				double setOffTime = requestTime - travelTime;
-				double waitTime = taxiAvailTime - setOffTime; // negative value means on time
+				// Time taxi must set off to reach startLoc at requestTime. ** what if <0?
+				double setOffTime = r.requestTime - travelTime;
+				// Time customer needs to wait for this taxi
+				double waitTime = taxiAvailTime - setOffTime;
 
-				// System.out.println("traveltime:" + travelTime);
-				// System.out.println("setofftime:" + setOffTime);
-				// System.out.println("waittime:" + waitTime);
-				// System.out.println("taxiavailtime:" + taxiAvailTime);
-				// System.out.println("reqtime:" + requestTime);
+				// System.out.println("taxiLoc:" + taxiLoc);
+				// System.out.println("travelTime:" + travelTime);
+				// System.out.println("setOffTime:" + setOffTime);
+				// System.out.println("waitTime:" + waitTime);
 				// System.out.println();
 
-				// print("waitTime:" + waitTime);
-
-				// ***** greedy logic *****
-				boolean chosen = false;
-				if (GREEDY_CHOICE == 2) {
-					// print("con1:" + (traversed == false));
-					// print("con2:" + (shortestWait > 0 && waitTime <= 0));
-					// print("con3:" + (shortestWait < 0 && waitTime < 0 && waitTime >
-					// shortestWait));
-					// print("con4:" + (shortestWait > 0 && waitTime > 0 && waitTime <
-					// shortestWait));
-					chosen = (traversed == false
+				boolean isShorter = false;
+				if (GREEDY_CHOICE == 1) {
+					isShorter = (hasTravelled == false || waitTime < shortestWait);
+				} else if (GREEDY_CHOICE == 2) {
+					isShorter = (hasTravelled == false
 							|| (shortestWait > THRESHOLD && waitTime <= THRESHOLD)
 							|| (shortestWait < THRESHOLD && waitTime < THRESHOLD
 									&& waitTime > shortestWait)
 							|| (shortestWait > THRESHOLD && waitTime > THRESHOLD
 									&& waitTime < shortestWait));
-					traversed = true;
-
-				} else if (GREEDY_CHOICE == 1) {
-					chosen = (traversed == false || waitTime < shortestWait);
-					traversed = true;
-
 				}
-				// ***** greedy logic *****
 
-				if (chosen) {
+				if (isShorter) {
+					hasTravelled = true;
 					shortestWait = waitTime;
-					nearestTaxiLoc = taxiLoc;
-					nearestTaxiId = taxiId;
-					chosenJourneyTime = travelTime; // from taxiLoc to startLoc
+					shortestTaxiLoc = taxiLoc;
+					shortestTaxiId = taxiId;
 				}
 			}
-			print("chosen-taxiId:" + nearestTaxiId + ", reqId:" + requestId + ", taxiLoc:"
-					+ nearestTaxiLoc + ", startLoc:" + startLoc + ", descLoc:" + descLoc + ", wait:"
-					+ shortestWait);
 
-			// add to assignment
-			assignment.add(new int[] { nearestTaxiId, nearestTaxiLoc, requestId, requestTime,
-					startLoc, descLoc });
+			// Add the new assignment
+			assignment.add(new Assignment(shortestTaxiId, shortestTaxiLoc, r.requestId,
+					r.requestTime, r.startLoc, r.descLoc));
+
+			double journeyTime = dijkstra.getShortestDistanceTo(shortestTaxiLoc);
 
 			// Update taxi avail time
-			Double[] taxi = taxiAvail.get(nearestTaxiId);
-			if (shortestWait < 0) {
-				shortestWait = 0;
-			}
-			totalWait += shortestWait;
-			taxi[0] = (double) descLoc; // update taxi location
-			taxi[1] = requestTime + shortestWait + chosenJourneyTime; // update available time
-			taxiAvail.put(nearestTaxiId, taxi);
-
+			double nextTaxiAvailTime = r.requestTime + shortestWait + journeyTime;
+			taxisAvailList.put(shortestTaxiId,
+					new Double[] { (double) r.descLoc, nextTaxiAvailTime });
 		}
 
-		print("\nANS");
-		for (int[] i : assignment) {
-			print(i[0] + ", " + i[1] + ", " + i[2] + ", " + i[3] + ", " + i[4] + ", " + i[5]);
-		}
-
-		print("");
-		print("Greedy Total Wait: " + totalWait);
 		return assignment;
 
 	}
 
-	private static void printFinalCSV(ArrayList<int[]> assignment) {
+	private static List<Assignment> localSwap(List<Request> baseRequests,
+			List<Assignment> assignment, Map<Integer, Double[]> baseTaxisAvailList) {
+
+		System.out.println("Running local optimization");
+
+		List<Assignment> bestAssignment = assignment;
+		Map<Integer, Double[]> bestTaxiAvailList = new HashMap<Integer, Double[]>(
+				baseTaxisAvailList);
+		double shortestTotalWait = calculateTotalWait(assignment);
+
+		for (int i = 0; i < assignment.size(); i++) {
+			for (int j = 0; j < assignment.size(); j++) {
+				if (i == j) {
+					continue;
+				}
+
+				List<Assignment> testAssignment = new ArrayList<Assignment>();
+				Map<Integer, Double[]> taxiAvailList = new HashMap<Integer, Double[]>(
+						bestTaxiAvailList);
+
+				Assignment a = assignment.get(i);
+				Assignment b = assignment.get(j);
+
+				Assignment newA = new Assignment(a.taxiId, a.taxiLoc, b.requestId, b.requestTime,
+						b.startLoc, b.descLoc);
+				Assignment newB = new Assignment(b.taxiId, b.taxiLoc, a.requestId, a.requestTime,
+						a.startLoc, a.descLoc);
+
+				testAssignment.add(newA);
+				testAssignment.add(newB);
+
+				List<Request> newRequests = new ArrayList<Request>(baseRequests);
+				Iterator<Request> iterator = newRequests.iterator();
+				while (iterator.hasNext()) {
+					Request r = (Request) iterator.next();
+					if (r.requestId == newA.requestId)
+						iterator.remove();
+					else if (r.requestId == newB.requestId)
+						iterator.remove();
+				}
+
+				// newRequests.remove();
+				// newRequests.remove(j);
+
+				// Update taxi availability
+				Dijkstra d1 = dijkstraMap.get(newA.startLoc);
+				Dijkstra d2 = dijkstraMap.get(newB.startLoc);
+
+				double taxiAAvail = taxiAvailList.get(newA.taxiId)[1];
+				double taxiBAvail = taxiAvailList.get(newB.taxiId)[1];
+
+				double travelTimeA = d1.getShortestDistanceTo(newA.taxiLoc);
+				double setOffTimeA = newA.requestTime - travelTimeA;
+				double waitTimeA = taxiAAvail - setOffTimeA;
+				double journeyTimeA = d1.getShortestDistanceTo(newA.descLoc);
+				double taxiNextAvailA = journeyTimeA + waitTimeA + newA.requestTime;
+
+				double travelTimeB = d2.getShortestDistanceTo(newB.taxiLoc);
+				double setOffTimeB = newB.requestTime - travelTimeB;
+				double waitTimeB = taxiBAvail - setOffTimeB;
+				double journeyTimeB = d2.getShortestDistanceTo(newB.descLoc);
+				double taxiNextAvailB = journeyTimeB + waitTimeB + newB.requestTime;
+
+				taxiAvailList.put(newA.taxiId,
+						new Double[] { (double) newA.descLoc, taxiNextAvailA });
+				taxiAvailList.put(newB.taxiId,
+						new Double[] { (double) newB.descLoc, taxiNextAvailB });
+
+				testAssignment.addAll(runGreedy(newRequests, baseTaxisAvailList));
+
+				double totalWait = calculateTotalWait(testAssignment);
+
+				if (totalWait < shortestTotalWait) {
+					bestAssignment = testAssignment;
+					shortestTotalWait = totalWait;
+					bestTaxiAvailList = taxiAvailList;
+				}
+			}
+		}
+
+		return bestAssignment;
+	}
+
+	private static void printFinalCSV(List<Assignment> assignment) {
 		// print to resultsWriter
 		// [taxi id, taxi loc, request id, request loc, desc loc]
-		for (int[] i : assignment) {
-			int taxiId = i[0];
-			int taxiLoc = i[1];
-			// int requestId = i[2];
-			int requestTime = i[3];
-			int startLoc = i[4];
-			int descLoc = i[5];
+		for (Assignment i : assignment) {
 
-			Dijkstra dijkstra = dijkstraMap.get(startLoc);
+			Dijkstra dijkstra = dijkstraMap.get(i.startLoc);
 
-			List<Edge> p1 = dijkstra.getShortestPathTo(taxiLoc);
-			List<Edge> p2 = dijkstra.getShortestPathTo(descLoc);
+			List<Edge> p1 = dijkstra.getShortestPathTo(i.taxiLoc);
+			List<Edge> p2 = dijkstra.getShortestPathTo(i.descLoc);
 
 			// taxi travel to startLoc
 			for (int a = p1.size() - 1; a >= 0; a--) {
 				if (a == p1.size() - 1) {
-					resultsWriter.println(taxiId + ",Taxi,NA," + p1.get(a).id);
+					resultsWriter.println(i.taxiId + ",Taxi,NA," + p1.get(a).id);
 				} else {
-					resultsWriter.println(taxiId + ",Trans,NA," + p1.get(a).id);
+					resultsWriter.println(i.taxiId + ",Trans,NA," + p1.get(a).id);
 				}
 			}
 
 			// start travelling journey
 			for (int a = 0; a < p2.size(); a++) {
 				if (a == 0) {
-					resultsWriter.println(taxiId + ",Start," + requestTime + "," + p2.get(a).id);
+					resultsWriter
+							.println(i.taxiId + ",Start," + i.requestTime + "," + p2.get(a).id);
 				} else if (a == p2.size() - 1) {
-					resultsWriter.println(taxiId + ",End,NA," + p2.get(a).id);
+					resultsWriter.println(i.taxiId + ",End,NA," + p2.get(a).id);
 				} else {
-					resultsWriter.println(taxiId + ",Trans,NA," + p2.get(a).id);
+					resultsWriter.println(i.taxiId + ",Trans,NA," + p2.get(a).id);
 				}
 			}
 		}
@@ -534,6 +444,40 @@ public class TesterB {
 			Dijkstra d = getDijkstra(startLoc);
 			dijkstraMap.put(startLoc, d);
 		}
+	}
+
+	private static double calculateTotalWait(List<Assignment> assignment) {
+		double totalWait = 0.0;
+
+		Map<Integer, Double> taxisAvail = new HashMap<Integer, Double>();
+		for (int i = 0; i < taxiLocations.size(); i++) {
+			taxisAvail.put(i + 1, 0.0);
+		}
+
+		// 0-nearestTaxiId, 1-nearestTaxiLoc, 2-requestId, 3-requestTime, 4-startLoc, 5-descLoc
+		for (Assignment i : assignment) {
+			Dijkstra dijkstra = dijkstraMap.get(i.startLoc);
+			double taxiAvailTime = taxisAvail.get(i.taxiId);
+			double travelTime = dijkstra.getShortestDistanceTo(i.taxiLoc);
+
+			double setOffTime = i.requestTime - travelTime;
+			double waitTime = taxiAvailTime - setOffTime;
+			if (waitTime < 0)
+				waitTime = 0;
+			totalWait += waitTime;
+		}
+		System.out.println("Calculate wait: " + totalWait);
+		return totalWait;
+	}
+
+	private static double calculateWait(double requestTime, double taxiAvailTime,
+			double travelTime) {
+		// travelTime is the time required for taxi to travel from its location to the start
+		// location
+		double setOffTime = requestTime - travelTime;
+		double waitTime = taxiAvailTime - setOffTime; // negative value means on time
+
+		return waitTime;
 	}
 
 	private static void print(String s) {
