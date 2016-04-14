@@ -1,0 +1,68 @@
+
+Assignment...
+taxi:10, taxiLoc:3551, reqId:13, reqTime:1, startLoc:4919, descLoc:7479
+taxi:50, taxiLoc:4286, reqId:4, reqTime:2, startLoc:8778, descLoc:6100
+taxi:1, taxiLoc:8394, reqId:22, reqTime:2, startLoc:4033, descLoc:4748
+taxi:22, taxiLoc:2270, reqId:24, reqTime:2, startLoc:2684, descLoc:7273
+taxi:25, taxiLoc:3020, reqId:2, reqTime:4, startLoc:8544, descLoc:3023
+taxi:21, taxiLoc:9725, reqId:58, reqTime:6, startLoc:6431, descLoc:6999
+taxi:35, taxiLoc:3381, reqId:34, reqTime:7, startLoc:8145, descLoc:7238
+taxi:13, taxiLoc:1717, reqId:38, reqTime:7, startLoc:2683, descLoc:5205
+taxi:8, taxiLoc:5564, reqId:8, reqTime:8, startLoc:6734, descLoc:5981
+taxi:50, taxiLoc:6100, reqId:51, reqTime:11, startLoc:5490, descLoc:6661
+taxi:7, taxiLoc:7780, reqId:10, reqTime:13, startLoc:54, descLoc:8969
+taxi:39, taxiLoc:509, reqId:18, reqTime:17, startLoc:6019, descLoc:6426
+taxi:14, taxiLoc:3358, reqId:6, reqTime:19, startLoc:6946, descLoc:7667
+taxi:10, taxiLoc:7479, reqId:56, reqTime:24, startLoc:8737, descLoc:5723
+taxi:13, taxiLoc:5205, reqId:17, reqTime:25, startLoc:6919, descLoc:4184
+taxi:42, taxiLoc:162, reqId:15, reqTime:26, startLoc:6968, descLoc:8279
+taxi:16, taxiLoc:8089, reqId:35, reqTime:26, startLoc:5905, descLoc:2241
+taxi:35, taxiLoc:7238, reqId:55, reqTime:26, startLoc:6794, descLoc:2447
+taxi:50, taxiLoc:6661, reqId:12, reqTime:27, startLoc:7103, descLoc:3395
+taxi:8, taxiLoc:5981, reqId:7, reqTime:28, startLoc:7107, descLoc:4192
+taxi:12, taxiLoc:8059, reqId:60, reqTime:30, startLoc:5390, descLoc:982
+taxi:21, taxiLoc:6999, reqId:46, reqTime:31, startLoc:5521, descLoc:3131
+taxi:26, taxiLoc:1814, reqId:49, reqTime:31, startLoc:5537, descLoc:743
+taxi:25, taxiLoc:3023, reqId:59, reqTime:31, startLoc:6011, descLoc:9291
+taxi:22, taxiLoc:7273, reqId:26, reqTime:32, startLoc:3318, descLoc:2163
+taxi:27, taxiLoc:2141, reqId:31, reqTime:32, startLoc:8973, descLoc:7656
+taxi:36, taxiLoc:1642, reqId:32, reqTime:32, startLoc:9056, descLoc:1308
+taxi:1, taxiLoc:4748, reqId:23, reqTime:33, startLoc:4292, descLoc:2660
+taxi:1, taxiLoc:2660, reqId:40, reqTime:33, startLoc:4306, descLoc:3323
+taxi:44, taxiLoc:6664, reqId:54, reqTime:33, startLoc:7853, descLoc:7379
+taxi:18, taxiLoc:9844, reqId:36, reqTime:34, startLoc:155, descLoc:8811
+taxi:20, taxiLoc:328, reqId:25, reqTime:35, startLoc:6778, descLoc:6345
+taxi:30, taxiLoc:5345, reqId:39, reqTime:35, startLoc:755, descLoc:8668
+taxi:13, taxiLoc:4184, reqId:9, reqTime:37, startLoc:5128, descLoc:1056
+taxi:48, taxiLoc:4755, reqId:28, reqTime:37, startLoc:1781, descLoc:8768
+taxi:8, taxiLoc:4192, reqId:11, reqTime:38, startLoc:1523, descLoc:8348
+taxi:7, taxiLoc:8969, reqId:47, reqTime:38, startLoc:5210, descLoc:2198
+taxi:50, taxiLoc:3395, reqId:1, reqTime:39, startLoc:5259, descLoc:2865
+taxi:7, taxiLoc:2198, reqId:3, reqTime:39, startLoc:1744, descLoc:8304
+taxi:41, taxiLoc:843, reqId:5, reqTime:39, startLoc:2873, descLoc:9020
+taxi:45, taxiLoc:7654, reqId:44, reqTime:39, startLoc:5603, descLoc:6555
+taxi:36, taxiLoc:1308, reqId:27, reqTime:41, startLoc:8020, descLoc:8064
+taxi:45, taxiLoc:6555, reqId:16, reqTime:42, startLoc:5417, descLoc:6224
+taxi:30, taxiLoc:8668, reqId:29, reqTime:42, startLoc:1441, descLoc:6635
+taxi:16, taxiLoc:2241, reqId:41, reqTime:43, startLoc:8051, descLoc:3789
+taxi:10, taxiLoc:5723, reqId:57, reqTime:46, startLoc:5141, descLoc:9618
+taxi:12, taxiLoc:982, reqId:14, reqTime:47, startLoc:8732, descLoc:329
+taxi:44, taxiLoc:7379, reqId:21, reqTime:47, startLoc:5116, descLoc:1088
+taxi:21, taxiLoc:3131, reqId:30, reqTime:47, startLoc:4741, descLoc:4169
+taxi:13, taxiLoc:1056, reqId:43, reqTime:47, startLoc:547, descLoc:5820
+taxi:35, taxiLoc:2447, reqId:19, reqTime:48, startLoc:7532, descLoc:1858
+taxi:1, taxiLoc:3323, reqId:33, reqTime:48, startLoc:8641, descLoc:3450
+taxi:16, taxiLoc:3789, reqId:53, reqTime:51, startLoc:5864, descLoc:9144
+taxi:41, taxiLoc:9020, reqId:42, reqTime:53, startLoc:7201, descLoc:4989
+taxi:42, taxiLoc:8279, reqId:20, reqTime:54, startLoc:8598, descLoc:1529
+taxi:30, taxiLoc:6635, reqId:48, reqTime:54, startLoc:7031, descLoc:2039
+taxi:26, taxiLoc:743, reqId:52, reqTime:55, startLoc:6151, descLoc:9898
+taxi:22, taxiLoc:2163, reqId:37, reqTime:56, startLoc:8763, descLoc:6537
+taxi:8, taxiLoc:8348, reqId:50, reqTime:56, startLoc:7691, descLoc:8093
+taxi:10, taxiLoc:9618, reqId:45, reqTime:58, startLoc:4889, descLoc:810
+
+Total Wait: 334.3459807730725
+Avg Wait: 5.572433012884542
+Start Time: Mon Apr 11 20:29:34 SGT 2016
+End Time: Mon Apr 11 20:29:36 SGT 2016
+Duration (sec): 2.038

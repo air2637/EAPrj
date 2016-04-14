@@ -1,0 +1,15 @@
+
+Final Assignment...
+taxi:5, taxiLoc:8029, reqId:3, reqTime:1, startLoc:7953, descLoc:7832
+taxi:2, taxiLoc:867, reqId:1, reqTime:3, startLoc:1634, descLoc:3651
+taxi:4, taxiLoc:8543, reqId:5, reqTime:4, startLoc:3260, descLoc:7035
+taxi:1, taxiLoc:3395, reqId:6, reqTime:14, startLoc:7459, descLoc:8312
+taxi:3, taxiLoc:477, reqId:4, reqTime:25, startLoc:5177, descLoc:1989
+taxi:2, taxiLoc:3651, reqId:2, reqTime:47, startLoc:6977, descLoc:745
+
+Total: 10.4958322867132
+Avg: 1.7493053811188668
+
+Start Time:Thu Apr 14 23:45:34 SGT 2016
+End Time:Thu Apr 14 23:45:35 SGT 2016
+Duration(sec):0.597

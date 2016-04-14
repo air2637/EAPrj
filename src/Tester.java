@@ -17,13 +17,16 @@ public class Tester {
 	static ArrayList<Integer[]> demands;
 	static ArrayList<Integer> taxiLocations;
 
-	final static String dataFolderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for Decision Support\\project\\supplementary\\supplementary\\training\\";
-	static int NUM = 5;
+	// final static String dataFolderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for
+	// Decision Support\\project\\supplementary\\supplementary\\training\\";
+	final static String dataFolderPath = "D:\\Dropbox\\SMU\\Year3Sem2\\Enterprise Analytics for Decision Support\\project\\supplementary\\supplementary\\test\\test instances\\instance_b\\";
+	static int NUM = 50;
 	// static int NUM = 10;
 	// static int NUM = 20;
 	// static int NUM = 50;
 	// static int NUM = 100;
-	static String INPUT_FILE = "sin_train_" + NUM + "_" + NUM + ".txt";
+	// static String INPUT_FILE = "sin_train_" + NUM + "_" + NUM + ".txt";
+	static String INPUT_FILE = "sin_test_50_50.txt";
 
 	static PrintWriter summaryWriter, resultsWriter;
 

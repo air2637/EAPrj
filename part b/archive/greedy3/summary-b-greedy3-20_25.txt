@@ -1,0 +1,33 @@
+
+Assignment...
+taxi:16, taxiLoc:1428, reqId:11, reqTime:2, startLoc:2566, descLoc:3279
+taxi:17, taxiLoc:397, reqId:1, reqTime:6, startLoc:8036, descLoc:6263
+taxi:10, taxiLoc:2318, reqId:24, reqTime:7, startLoc:1441, descLoc:4238
+taxi:9, taxiLoc:9669, reqId:25, reqTime:7, startLoc:5893, descLoc:1030
+taxi:7, taxiLoc:9856, reqId:7, reqTime:12, startLoc:6964, descLoc:2880
+taxi:11, taxiLoc:1039, reqId:19, reqTime:20, startLoc:7913, descLoc:6683
+taxi:9, taxiLoc:1030, reqId:12, reqTime:22, startLoc:7771, descLoc:6288
+taxi:10, taxiLoc:4238, reqId:22, reqTime:28, startLoc:4197, descLoc:3645
+taxi:11, taxiLoc:6683, reqId:18, reqTime:31, startLoc:6746, descLoc:3102
+taxi:14, taxiLoc:511, reqId:16, reqTime:32, startLoc:7608, descLoc:6613
+taxi:10, taxiLoc:3645, reqId:21, reqTime:33, startLoc:753, descLoc:9173
+taxi:7, taxiLoc:2880, reqId:3, reqTime:38, startLoc:811, descLoc:7212
+taxi:16, taxiLoc:3279, reqId:20, reqTime:40, startLoc:1575, descLoc:8564
+taxi:20, taxiLoc:7498, reqId:4, reqTime:43, startLoc:506, descLoc:8602
+taxi:20, taxiLoc:8602, reqId:10, reqTime:43, startLoc:3586, descLoc:8713
+taxi:4, taxiLoc:5487, reqId:15, reqTime:43, startLoc:5708, descLoc:749
+taxi:4, taxiLoc:749, reqId:23, reqTime:45, startLoc:7735, descLoc:4856
+taxi:4, taxiLoc:4856, reqId:14, reqTime:46, startLoc:4013, descLoc:8741
+taxi:11, taxiLoc:3102, reqId:9, reqTime:48, startLoc:1457, descLoc:6376
+taxi:4, taxiLoc:8741, reqId:5, reqTime:50, startLoc:1653, descLoc:6466
+taxi:20, taxiLoc:8713, reqId:8, reqTime:51, startLoc:3426, descLoc:4889
+taxi:16, taxiLoc:8564, reqId:17, reqTime:51, startLoc:1346, descLoc:4262
+taxi:20, taxiLoc:4889, reqId:6, reqTime:52, startLoc:9252, descLoc:407
+taxi:12, taxiLoc:8819, reqId:13, reqTime:52, startLoc:8233, descLoc:7393
+taxi:18, taxiLoc:7066, reqId:2, reqTime:54, startLoc:7079, descLoc:7700
+
+Total Wait: 266.9652087226565
+Avg Wait: 10.678608348906259
+Start Time: Wed Apr 13 00:07:33 SGT 2016
+End Time: Wed Apr 13 00:07:35 SGT 2016
+Duration (sec): 1.134
