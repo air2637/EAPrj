@@ -10,6 +10,6 @@ taxi:2, taxiLoc:3651, reqId:2, reqTime:47, startLoc:6977, descLoc:745
 Total: 10.4958322867132
 Avg: 1.7493053811188668
 
-Start Time:Thu Apr 14 23:45:34 SGT 2016
-End Time:Thu Apr 14 23:45:35 SGT 2016
-Duration(sec):0.597
+Start Time:Fri Apr 15 10:04:35 SGT 2016
+End Time:Fri Apr 15 10:04:35 SGT 2016
+Duration(sec):0.559

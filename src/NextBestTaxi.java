@@ -1,34 +1,10 @@
 
 public class NextBestTaxi {
 
-	int taxiLoc;
-	int taxiId;
-	double waitTime;
 	boolean past;
-
-	public int getTaxiLoc() {
-		return taxiLoc;
-	}
-
-	public void setTaxiLoc(int taxiLoc) {
-		this.taxiLoc = taxiLoc;
-	}
-
-	public int getTaxiId() {
-		return taxiId;
-	}
-
-	public void setTaxiId(int taxiId) {
-		this.taxiId = taxiId;
-	}
-
-	public double getWaitTime() {
-		return waitTime;
-	}
-
-	public void setWaitTime(double waitTime) {
-		this.waitTime = waitTime;
-	}
+	int taxiId;
+	int taxiLoc;
+	double waitTime;
 
 	public NextBestTaxi(int taxiLoc, int taxiId, double waitTime, boolean past) {
 		super();
@@ -38,12 +14,36 @@ public class NextBestTaxi {
 		this.past = past;
 	}
 
+	public int getTaxiId() {
+		return taxiId;
+	}
+
+	public int getTaxiLoc() {
+		return taxiLoc;
+	}
+
+	public double getWaitTime() {
+		return waitTime;
+	}
+
 	public boolean isPast() {
 		return past;
 	}
 
 	public void setPast(boolean past) {
 		this.past = past;
+	}
+
+	public void setTaxiId(int taxiId) {
+		this.taxiId = taxiId;
+	}
+
+	public void setTaxiLoc(int taxiLoc) {
+		this.taxiLoc = taxiLoc;
+	}
+
+	public void setWaitTime(double waitTime) {
+		this.waitTime = waitTime;
 	}
 
 	@Override
